@@ -21,7 +21,8 @@ class About extends React.Component {
       <p>
         I am a second-year <b>BTS SIO (SLAM OPTION)</b> student based in
         Nancy, France. I am currently looking for a <b style={{ color: "var(--green-bright)" }}>7-week unpaid intership </b>
-        in the software development field, where I can sharpen my skills, contribute to real projects, and grow as a developer.
+        in the software development field, where I can sharpen my skills, 
+        contribute to real projects, and grow as a <b style={{ color: "var(--green-bright)" }}>developer</b>.
         
       </p>
     );
