@@ -19,27 +19,25 @@ class About extends React.Component {
   render() {
     const one = (
       <p>
-        I am currently a <b>Software Development Engineer</b> at
-        <a href="https://www.aboutamazon.com/"> Amazon</a>, working in the AWS
-        sector under team Route 53. At the same time, I am undertaking a
-        part-time <b> Master's of Science</b> in <b>Software Engineering </b>at{" "}
-        <a href="https://www.ox.ac.uk/about">University of Oxford</a>.
+        I am a second-year <b>BTS SIO (Software Development)</b> student based in
+        Nancy, France. I am currently looking for a <b style={{ color: "var(--green-bright)" }}>7-week unpaid intership</b>
+        in the software development field, where I can sharpen my skills, contribute to real projects, and grow as a developer.
+        
       </p>
     );
     const two = (
       <p>
-        Outside of work, I'm interested in following the developments of
-        science. I also play a lot of video games. And make TikToks.
+        Outside of my studies, I have a strong interest in innovation and astronomy.
+        I also love playing viddeo games and watching movies.
       </p>
     );
 
     const tech_stack = [
-      "Typescript",
-      "Python",
+      "HTML, CSS",
+      "PHP",
+      "Javascript",
+      "Laravel",
       "React.js",
-      "Java",
-      "Javascript ES6+",
-      "C#"
     ];
 
     return (
