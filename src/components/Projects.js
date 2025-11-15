@@ -60,12 +60,12 @@ class Projects extends React.Component {
       }
     };
     const projects = {
-      "TDSB Homework Management Interface": {
+      "Lorem ipsum dolor sit amet consect": {
         desc:
-          "An application created for Toronto District School Board, with a Flask back-end and a Vue front-end.",
-        techStack: "Python (Flask), Vue.js, Bootstrap, SQL",
-        link: "https://github.com/gazijarin/TDSBHomeworkManagement",
-        open: "https://tdsb-app.herokuapp.com/"
+          "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque",
+        techStack: "Lorem ipsum dolor sit amet.",
+        link: "",
+        open: ""
       },
 
     };
