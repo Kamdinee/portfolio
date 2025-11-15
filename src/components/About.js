@@ -19,8 +19,8 @@ class About extends React.Component {
   render() {
     const one = (
       <p>
-        I am a second-year <b>BTS SIO (Software Development)</b> student based in
-        Nancy, France. I am currently looking for a <b style={{ color: "var(--green-bright)" }}>7-week unpaid intership</b>
+        I am a second-year <b>BTS SIO (SLAM OPTION)</b> student based in
+        Nancy, France. I am currently looking for a <b style={{ color: "var(--green-bright)" }}>7-week unpaid intership </b>
         in the software development field, where I can sharpen my skills, contribute to real projects, and grow as a developer.
         
       </p>
