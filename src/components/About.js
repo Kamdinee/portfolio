@@ -29,7 +29,7 @@ class About extends React.Component {
     const two = (
       <p>
         Outside of my studies, I have a strong interest in innovation and astronomy.
-        I also love playing viddeo games and watching movies.
+        I also love playing video games and watching movies.
       </p>
     );
 
