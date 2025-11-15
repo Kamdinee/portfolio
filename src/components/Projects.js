@@ -60,13 +60,28 @@ class Projects extends React.Component {
       }
     };
     const projects = {
-      "Lorem ipsum dolor sit amet consect": {
+      "Lorem ipsum dolor sit amet consect1": {
         desc:
           "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque",
-        techStack: "Lorem ipsum dolor sit amet.",
+        techStack: "Lorem ipsum dolor sit amet",
         link: "",
         open: ""
       },
+      "Lorem ipsum dolor sit amet consect2": {
+        desc:
+          "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque",
+        techStack: "Lorem ipsum dolor sit amet",
+        link: "",
+        open: ""
+      },
+      "Lorem ipsum dolor sit amet consect3": {
+        desc:
+          "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque",
+        techStack: "Lorem ipsum dolor sit amet",
+        link: "",
+        open: ""
+      },
+      
 
     };
 
