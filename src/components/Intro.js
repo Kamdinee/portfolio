@@ -1,11 +1,11 @@
 import React from "react";
-
 import "../styles/Intro.css";
 import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import FadeInSection from "./FadeInSection";
-import FractalTree from "./FractalTree";
+import MarsLanding from "./MarsLanding.js";
+
 
 class Intro extends React.Component {
   constructor() {
@@ -25,7 +25,9 @@ class Intro extends React.Component {
   render() {
     return (
       <div id="intro">
-        <FractalTree></FractalTree>
+        <div className="intro-animation-wrapper">
+        <MarsLanding></MarsLanding>
+        </div>
         <Typist avgTypingDelay={120}>
           <span className="intro-title">
             {"hi, i'm "}
