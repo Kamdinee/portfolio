@@ -2,6 +2,7 @@ import React from "react";
 import Intro from "./components/Intro";
 import Experience from "./components/Experience";
 import About from "./components/About";
+import Degrees from "./components/Degrees";
 import Projects from "./components/Projects";
 import Credits from "./components/Credits";
 import NavBar from "./components/NavBar";
@@ -16,6 +17,7 @@ function App() {
       <div id="content">
         <Intro></Intro>
         <About></About>
+        <Degrees></Degrees>
         <Experience></Experience>
         <Projects></Projects>
         <Credits></Credits>
