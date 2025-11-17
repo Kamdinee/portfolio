@@ -4,7 +4,7 @@ import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import FadeInSection from "./FadeInSection";
-import MarsLanding from "./MarsLanding.js";
+
 
 
 class Intro extends React.Component {
@@ -25,9 +25,6 @@ class Intro extends React.Component {
   render() {
     return (
       <div id="intro">
-        <div className="intro-animation-wrapper">
-        <MarsLanding></MarsLanding>
-        </div>
         <Typist avgTypingDelay={120}>
           <span className="intro-title">
             {"hi, i'm "}
