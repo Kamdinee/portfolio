@@ -32,4 +32,4 @@ Since this project is a bit old, a specific command is required to install depen
 
 This portfolio was inspired by the work of **Gazi Jarin**.
 
-(https://github.com/gazijarin/Gazi)
+https://github.com/gazijarin/Gazi
