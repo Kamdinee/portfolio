@@ -3,7 +3,6 @@ import "../styles/Intro.css";
 import "../styles/Flowers.css";
 import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
-import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import FadeInSection from "./FadeInSection";
 
 
@@ -24,7 +23,7 @@ class Intro extends React.Component {
       activeKey: eventKey,
     });
   }
-      componentDidMount() {
+  componentDidMount() {
     document.body.classList.add("not-loaded");
     this.timeoutId = setTimeout(() => {
       document.body.classList.remove("not-loaded");
