@@ -1,6 +1,10 @@
+<div align="center">
+
 # Portfolio
 
-Welcome to my portfolio! Here is an overview of my projects and skills.
+Welcome to my portfolio!
+
+</div>
 
 ![Portfolio Preview](./public/assets/preview.png)
 
