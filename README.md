@@ -10,17 +10,15 @@ Welcome to my portfolio!
 
 ## 🚀 Installation and Setup
 
-Since this project is a bit old, a specific command is required to install dependencies.
-
 1.  Clone the repository:
     ```bash
     git clone https://github.com/your-username/your-repo.git
     cd portfolio
     ```
 
-2.  Install dependencies with the legacy option:
+2.  Install dependencies
     ```bash
-    npm install --legacy-peer-deps
+    npm install
     ```
 
 3.  Start the project:
