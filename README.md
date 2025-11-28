@@ -31,5 +31,4 @@ Since this project is a bit old, a specific command is required to install depen
 ## 🎨 Credits and Inspiration
 
 This portfolio was inspired by the work of **Gazi Jarin**.
-
 (https://github.com/gazijarin/Gazi)
