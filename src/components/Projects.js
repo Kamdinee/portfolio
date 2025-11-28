@@ -60,11 +60,11 @@ class Projects extends React.Component {
       }
     };
     const projects = {
-      "Lorem ipsum dolor sit amet consect1": {
+      "Omori Weather": {
         desc:
-          "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque",
-        techStack: "Lorem ipsum dolor sit amet",
-        link: "",
+          "A weather widget inspired by the game Omori, with dynamic moods where characters react to the weather.",
+        techStack: "Electron, Weather API, HTML/CSS/JS",
+        link: "https://github.com/Kamdinee/omori-weather",
         open: ""
       },
       "Lorem ipsum dolor sit amet consect2": {
@@ -81,7 +81,7 @@ class Projects extends React.Component {
         link: "",
         open: ""
       },
-      
+
 
     };
 
