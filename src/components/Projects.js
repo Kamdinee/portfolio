@@ -22,29 +22,32 @@ class Projects extends React.Component {
   }
   render() {
     const spotlightProjects = {
-      "Projet 1": {
-        title: "Projet 1",
-        desc: "Projet en création. Les détails seront ajoutés ultérieurement.",
-        techStack: "À définir",
-        link: "",
+      "Agora Web": {
+        title: "Agora Web",
+        desc: "Application du site d'administration des données de la MJC AGORA développé en 2ème année de BTS",
+        techStack: "Symfony, PHP, Doctrine",
+        link: "https://github.com/Lavarice/Mission4/tree/sprint54",
         open: "",
-        image: ""
+        image: "/assets/agoraweb.png",
+        doc: "/assets/agoraweb_cr.pdf"
       },
-      "Projet 2": {
-        title: "Projet 2",
-        desc: "Projet en création. Les détails seront ajoutés ultérieurement.",
-        techStack: "À définir",
+      "Miratlas": {
+        title: "Miratlas",
+        desc: "Customer Dashboard / SSO qui affichent aux clients des informations récapitulatives de leur Skymonitor via API",
+        techStack: "Laravel, Tailwind, Docker",
         link: "",
         open: "",
-        image: ""
+        doc: "/assets/miratlas.pdf",
+        image: "/assets/miratlas.png"
       },
-      "Projet 3": {
-        title: "Projet 3",
-        desc: "Projet en création. Les détails seront ajoutés ultérieurement.",
-        techStack: "À définir",
-        link: "",
+      "Yabonlapub": {
+        title: "Yabonlapub",
+        desc: "Amélioration et sécurisation du site caritatif Yabonlapub, conçu pour reverser les revenus générés par la publicité à des associations.",
+        techStack: "Next.js, Tailwind, Neon",
+        link: "https://github.com/cyrille33000/site-yabonlapub",
         open: "",
-        image: ""
+        doc: "/assets/yabonlapub.pdf",
+        image: "/assets/yabonlapub.png"
       }
     };
     const projects = {
@@ -96,17 +99,18 @@ class Projects extends React.Component {
                 alt={key}
               />
               <div className="caption-bg">
-                <Carousel.Caption>
+                <Carousel.Caption className={`caption-${i + 1}`}>
                   <h3>{spotlightProjects[key]["title"]}</h3>
-                  <p>
-                    {spotlightProjects[key]["desc"]}
+                  <div className="project-description">
+                    <p>{spotlightProjects[key]["desc"]}</p>
                     <p className="techStack">
                       {spotlightProjects[key]["techStack"]}
                     </p>
-                  </p>
+                  </div>
                   <ExternalLinks
                     githubLink={spotlightProjects[key]["link"]}
                     openLink={spotlightProjects[key]["open"]}
+                    docLink={spotlightProjects[key]["doc"]}
                   ></ExternalLinks>
                 </Carousel.Caption>
               </div>

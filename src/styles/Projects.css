@@ -8,6 +8,7 @@
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   grid-gap: 10px;
 }
+
 @media (max-width: 1080px) {
   .projects-grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -40,6 +41,7 @@
   justify-content: space-between;
   border-bottom: none !important;
 }
+
 .folder-icon {
   color: var(--green-bright);
 }
@@ -47,6 +49,7 @@
 .github-icon {
   margin-top: 6px;
 }
+
 .github-icon:hover {
   color: var(--green-bright);
 }
@@ -93,9 +96,12 @@
 }
 
 .carousel img {
-  object-fit: contain;
+  object-fit: cover;
   height: 100%;
-  opacity: 0.5;
+  width: 100%;
+  opacity: 0.9;
+  filter: brightness(0.35);
+  /* Assombrit l'image pour que le texte reste lisible */
 }
 
 .carousel-caption {
@@ -104,10 +110,33 @@
   right: unset !important;
   left: 25% !important;
   user-select: none;
+  /* Laissons Bootstrap gérer le bottom par défaut comme dans le vrai code */
 }
 
+/* ---- RÉGLAGE DE LA HAUTEUR (HAUT/BAS) POUR CHAQUE PROJET ---- */
+/* Modifiez le "bottom" ou "top" pour monter ou descendre le texte d'un projet */
+
+/* Projet 1 (Agora Web) */
+.carousel-caption.caption-1 {
+  /* Modifiez cette valeur ! Plus elle est haute, plus le texte monte. */
+  bottom: 25% !important;
+}
+
+/* Projet 2 (Miratlas) */
+.carousel-caption.caption-2 {
+  bottom: 16% !important;
+}
+
+/* Projet 3 */
+.carousel-caption.caption-3 {
+  bottom: 2% !important;
+}
+
+/* ------------------------------------------------------------- */
+
 .carousel-caption h3 {
-  font-size: 38px;
+  font-size: 30px;
+  /* Baisse de 38px à 30px */
   font-weight: bold;
   color: var(--lightest-slate);
 }
@@ -115,13 +144,15 @@
 .carousel-caption p {
   font-family: "Inter", sans-serif;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
+  /* Baisse de 18px à 14px */
   color: var(--lightest-slate);
 }
 
 .carousel-caption p.techStack {
   font-family: "Inter", sans-serif;
-  font-size: 14px;
+  font-size: 11px;
+  /* Baisse de 14px à 11px */
   font-weight: bold;
   color: var(--green-bright);
 }
@@ -136,6 +167,7 @@
     padding-left: unset;
     padding-right: unset;
   }
+
   .carousel {
     display: none;
   }

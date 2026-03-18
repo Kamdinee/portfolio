@@ -60,7 +60,7 @@ class About extends React.Component {
               {[two]}
 
               <div className="cv-button-container" style={{ marginTop: "40px", display: "flex", justifyContent: "flex-start" }}>
-                <a href="/assets/CV.pdf" download="CV.pdf" style={{ textDecoration: "none" }}>
+                <a href="/assets/CV_Kamdine_HASSANZADEH.pdf" download="CV_Kamdine_HASSANZADEH.pdf" style={{ textDecoration: "none" }}>
                   <button className="star-button">
                     Mon CV
                     {[1, 2, 3, 4, 5, 6].map((starNum) => (

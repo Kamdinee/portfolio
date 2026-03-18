@@ -125,7 +125,7 @@ class Intro extends React.Component {
           </span>
         </Typist>
         <FadeInSection>
-          <div className="intro-subtitle" style={{ marginTop: "30px" }}>et je code parfois.</div>
+          <div className="intro-subtitle" style={{ marginTop: "10px" }}>et je code parfois.</div>
           <div className="intro-desc">
             Je suis un étudiant en 2ème année de développement logiciel basé à Nancy, France.
             Passionné par la création de sites web propres, minimalistes et visuellement attrayants

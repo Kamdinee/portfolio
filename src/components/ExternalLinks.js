@@ -31,14 +31,16 @@ class ExternalLinks extends React.Component {
             ></DescriptionIcon>
           </a>
         )}
-        <a className="github-icon" href={this.props.githubLink}>
-          <GitHubIcon
-            style={{
-              fontSize: 20,
-              color: "var(--lightest-slate)"
-            }}
-          ></GitHubIcon>
-        </a>
+        {this.props.githubLink && (
+          <a className="github-icon" href={this.props.githubLink}>
+            <GitHubIcon
+              style={{
+                fontSize: 20,
+                color: "var(--lightest-slate)"
+              }}
+            ></GitHubIcon>
+          </a>
+        )}
         {this.props.openLink && (
           <a className="open-icon" href={this.props.openLink}>
             <OpenInBrowserIcon

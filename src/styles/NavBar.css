@@ -86,3 +86,25 @@
         padding: 15px !important;
     }
   }
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.logo-text:hover {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  transform: scale(1.03);
+}
+
+.vertical-navbar .nav-link.active-link {
+  color: #ffffff !important;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
