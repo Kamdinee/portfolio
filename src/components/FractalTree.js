@@ -37,7 +37,7 @@ const Sketch = p5 => {
 };
 
 const FractalTree = () => (
-  <div id="fractal-tree" style={{ display: "flex", justifyContent: "center", marginBottom: "5px" }}>
+  <div id="fractal-tree" style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
     <P5Wrapper sketch={Sketch} />
   </div>
 );
