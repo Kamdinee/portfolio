@@ -59,29 +59,37 @@ class Projects extends React.Component {
         open: "",
         doc: ""
       },
-      "Projet Lorem 1": {
+      "Agora Mobile": {
         desc:
-          "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
-        techStack: "Lorem ipsum dolor sit amet",
-        link: "#",
+          "Application mobile créée sur mandat de la MJC Agora pour publier des informations sur les jeux, marques, plateformes, genres et classement PEGI.",
+        techStack: "Android Studio, JS, framework Metro",
+        link: "https://github.com/MartinLe0/AgoraMobile",
         open: "",
-        doc: "/assets/compte_rendu.pdf"
+        doc: "/assets/agoramobile.pdf"
       },
-      "Projet Lorem 2": {
+      "StageConnect": {
         desc:
-          "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
-        techStack: "Lorem ipsum dolor sit amet",
-        link: "#",
+          "Plateforme de mise en relation étudiants/entreprises dédiée aux offres de stage, intégrant des interfaces adaptées à chaque profil.",
+        techStack: "PHP, JS, MySQL",
+        link: "",
         open: "",
-        doc: "/assets/compte_rendu.pdf"
+        doc: "/assets/stageconnect.pdf"
       },
-      "Projet Lorem 3": {
+      "WordPress": {
         desc:
-          "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
-        techStack: "Lorem ipsum dolor sit amet",
-        link: "#",
+          "Développement d'un portfolio via le CMS WordPress dans le but d'en découvrir les fonctionnalités et l'écosystème.",
+        techStack: "WordPress",
+        link: "",
         open: "",
-        doc: "/assets/compte_rendu.pdf"
+        doc: ""
+      },
+      "Challenge VR 2025": {
+        desc:
+          "Découverte de l'immersion en réalité virtuelle, structurée autour du choix d'un avatar et de l'exploration d'un monde interactif développé pour ce projet.",
+        techStack: "PHP, MySQL",
+        link: "https://github.com/flanOcaramel/Challenge2eVR",
+        open: "",
+        doc: "/assets/rapport final du challenge.pdf"
       }
     };
 

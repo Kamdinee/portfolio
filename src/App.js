@@ -5,7 +5,7 @@ import About from "./components/About";
 import Degrees from "./components/Degrees";
 import Projects from "./components/Projects";
 import Veilles from "./components/Veilles";
-import EpreuveE4 from "./components/EpreuveE4";
+import EpreuveE5 from "./components/EpreuveE5";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import "./styles/Global.css";
@@ -22,7 +22,7 @@ function App() {
         <Experience></Experience>
         <Projects></Projects>
         <Veilles></Veilles>
-        <EpreuveE4></EpreuveE4>
+        <EpreuveE5></EpreuveE5>
       </div>
     </div>
   );

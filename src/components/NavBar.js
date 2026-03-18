@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import FractalTree from "./FractalTree";
 import "../styles/NavBar.css";
 
 class NavBar extends React.Component {
@@ -26,7 +27,7 @@ class NavBar extends React.Component {
   }
 
   handleScroll() {
-    const sections = ["about", "degrees", "experience", "projects", "veilles", "epreuve-e4"];
+    const sections = ["about", "degrees", "experience", "projects", "veilles", "epreuve-e5"];
     let current = "";
 
     for (const section of sections) {
@@ -54,7 +55,8 @@ class NavBar extends React.Component {
         <Container className="flex-column navbar-container">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="w-100 flex-column justify-content-center">
-            <div className="navbar-logo" style={{ marginBottom: "2.5rem", marginTop: "1rem", textAlign: "center" }}>
+            <FractalTree />
+            <div className="navbar-logo" style={{ marginBottom: "2.5rem", marginTop: "-5px", textAlign: "center" }}>
               <a href="#intro" className="logo-text">
                 kam
               </a>
@@ -76,7 +78,7 @@ class NavBar extends React.Component {
               <Nav.Link href="#experience" className={activeLink === "#experience" ? "active-link" : ""}>Expériences</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === "#projects" ? "active-link" : ""}>Projets</Nav.Link>
               <Nav.Link href="#veilles" className={activeLink === "#veilles" ? "active-link" : ""}>Veilles</Nav.Link>
-              <Nav.Link href="#epreuve-e4" className={activeLink === "#epreuve-e4" ? "active-link" : ""}>Épreuve E4</Nav.Link>
+              <Nav.Link href="#epreuve-e5" className={activeLink === "#epreuve-e5" ? "active-link" : ""}>Épreuve E5</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <div className="navbar-footer">
