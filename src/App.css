@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
 html {
   scroll-behavior: smooth;
 }
@@ -18,10 +20,11 @@ html {
 }
 
 .App {
-  font-family: "NTR";
+  font-family: "Inter", sans-serif;
   background-color: var(--navy);
   display: flex;
   margin: auto;
+  min-height: 100vh;
 }
 .App-logo {
   height: 40vmin;
@@ -34,11 +37,45 @@ a {
 }
 
 #content {
-  /* padding: 80px 200px; */
-  width: 100vw;
+  margin-left: 250px;
+  width: calc(100vw - 250px);
   overflow-x: hidden;
   overflow-y: hidden;
+  box-sizing: border-box;
 }
+
+#content > div,
+#content > section {
+  padding: 80px 10%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+}
+
+#content > div > *,
+#content > section > * {
+  max-width: 1000px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100%;
+}
+
+#content > :nth-child(even),
+#content > :nth-child(odd) {
+  background-color: var(--navy);
+}
+
+/* Removed section divider */
+/* Specific adjustment for intro so it doesn't add to existing padding too much */
+#intro {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 .rs-steps-horizontal .rs-steps-item-content {
   text-align: left;
 }
@@ -63,7 +100,7 @@ a {
 .section-header {
   display: flex;
   padding-bottom: 42px;
-  width: 100vw;
+  width: 100%;
 }
 
 .section-header::after {
@@ -77,9 +114,9 @@ a {
 }
 
 .section-title {
-  font-family: "NTR", sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--lightest-slate);
-  font-size: 46px;
+  font-size: 43px;
   font-weight: bold;
 }
 
@@ -92,6 +129,7 @@ a {
   #content {
     padding: 10px 10px;
     width: 100%;
+    margin-left: 0;
   }
 
   .section-header {
@@ -103,6 +141,6 @@ a {
   }
 
   .section-title {
-    font-size: 32px;
+    font-size: 29px;
   }
 }

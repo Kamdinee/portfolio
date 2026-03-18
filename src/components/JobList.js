@@ -82,14 +82,25 @@ const JobList = () => {
   const [value, setValue] = React.useState(0);
 
   const experienceItems = {
-    Miratlas: {
-      jobTitle: "Software Development Engineer @",
-      duration: "MAY 2025 - JULY 2025",
+    Yabonlapub: {
+      jobTitle: "Développeur informatique @",
+      duration: "JANVIER 2026 - FÉVRIER 2026",
       desc: [
-        "Developed front-end interfaces and a SSO dashboard using modern tools such as Tailwind and Grafana.",
-        "Implemented API-driven features for dynamic visualization of spatial data captured by the SkyMonitor system.",
-        "Improved the user experience of a specialized observation platform.",
-        "Gained experience with Docker, Laravel, and agile collaboration within a team"
+        "Évolution visuel et ergonomique du site en Next.js et Tailwind.",
+        "Mise en place de l'infrastructure Docker et production automatisé sur Vercel.",
+        "Sécurisation et amélioration de la BDD sous Neon gérées via l'ORM Prisma.",
+        "Création de panel admin, d'un système d'authentification par Next.js et envoi de mail via Clerk.",
+        "Créations de quelques modules jeux codés en python comme Pacman ou Tetris."
+      ]
+    },
+    Miratlas: {
+      jobTitle: "Ingénieur en Développement Logiciel @",
+      duration: "MAI 2025 - JUILLET 2025",
+      desc: [
+        "Développement d'interfaces front-end et d'un tableau de bord SSO avec des outils modernes tels que Tailwind et Grafana.",
+        "Mise en place de fonctionnalités basées sur des API pour la visualisation dynamique de données spatiales capturées par le système SkyMonitor.",
+        "Amélioration de l'expérience utilisateur pour une plateforme d'observation spécialisée.",
+        "Acquisition d'expérience avec Docker, Laravel, et la collaboration agile en équipe."
       ]
     },
   };

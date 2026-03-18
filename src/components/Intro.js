@@ -119,17 +119,17 @@ class Intro extends React.Component {
         {/* Fin de l'intégration de l'horloge (Flowers) */}
         <Typist avgTypingDelay={120}>
           <span className="intro-title">
-            {"hi, i'm "}
+            {"salut, je suis "}
             <span className="intro-name">{"kamdine"}</span>
             {"."}
           </span>
         </Typist>
         <FadeInSection>
-          <div className="intro-subtitle">and i code sometimes.</div>
+          <div className="intro-subtitle" style={{ marginTop: "30px" }}>et je code parfois.</div>
           <div className="intro-desc">
-            I'm a second-year software development student based in Nancy, France.
-            Passionate about creating clean, minimalist, and visually appealing websites
-            that combine design and functionality to deliver great user experiences.
+            Je suis un étudiant en 2ème année de développement logiciel basé à Nancy, France.
+            Passionné par la création de sites web propres, minimalistes et visuellement attrayants
+            qui combinent design et fonctionnalité pour offrir d'excellentes expériences utilisateur.
           </div>
         </FadeInSection>
       </div>

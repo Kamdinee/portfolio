@@ -9,7 +9,7 @@ export default function Degrees() {
     <section id="degrees">
       <FadeInSection>
         <h2 className="degrees-title">
-          Degrees
+          / formations
           <span className="degrees-line"></span>
         </h2>
 
@@ -27,22 +27,22 @@ export default function Degrees() {
           <div className="degree-content">
             <h3 className="degree-name">
               <GraduationCap className="degree-title-icon" />
-              Advanced Technician’s Certificate – Ongoing
+              Brevet de Technicien Supérieur – En cours
             </h3>
 
             <p className="degree-field">
-              Computer Services for Organizations — Software Solutions and
-              Business Applications.
+              Services Informatiques aux Organisations — Solutions Logicielles et
+              Applications Métiers (SLAM).
             </p>
 
             <div className="degree-sub">
               <MapPin className="sub-icon" />
-              High School Frederic Chopin — Nancy, France
+              Lycée Frédéric Chopin — Nancy, France
             </div>
 
             <div className="degree-sub">
               <Calendar className="sub-icon" />
-              From 01/09/2024 to 20/05/2026
+              Du 01/09/2024 au 20/05/2026
             </div>
           </div>
         </div>
@@ -62,22 +62,21 @@ export default function Degrees() {
           <div className="degree-content">
             <h3 className="degree-name">
               <GraduationCap className="degree-title-icon" />
-              Bachelor’s Program – Incompleted
+              Licence – Interrompue
             </h3>
 
             <p className="degree-field">
-              Computer Services for Organizations — Software Solutions and
-              Business Applications.
+              Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales (MIASHS).
             </p>
 
             <div className="degree-sub">
               <MapPin className="sub-icon" />
-              Institute of Digital Sciences / MIASHS — Nancy, France
+              Institut des Sciences du Digital (IDMC) — Nancy, France
             </div>
 
             <div className="degree-sub">
               <Calendar className="sub-icon" />
-              From 13/09/2021 to 05/01/2023
+              Du 13/09/2021 au 05/01/2023
             </div>
           </div>
         </div>
@@ -93,22 +92,21 @@ export default function Degrees() {
           <div className="degree-content">
             <h3 className="degree-name">
               <GraduationCap className="degree-title-icon" />
-              General Baccalaureate – Completed
+              Baccalauréat Général – Obtenu
             </h3>
 
             <p className="degree-field">
-              General Baccalaureate — Specialization in Mathematics and Life
-              Sciences.
+              Baccalauréat Général — Spécialités Mathématiques et Sciences de la Vie et de la Terre (SVT).
             </p>
 
             <div className="degree-sub">
               <MapPin className="sub-icon" />
-              High School Jacques Callot — Nancy, France
+              Lycée Jacques Callot — Nancy, France
             </div>
 
             <div className="degree-sub">
               <Calendar className="sub-icon" />
-              From 01/09/2018 to 07/07/2021
+              Du 01/09/2018 au 07/07/2021
             </div>
           </div>
         </div>

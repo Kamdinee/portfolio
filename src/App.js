@@ -4,7 +4,8 @@ import Experience from "./components/Experience";
 import About from "./components/About";
 import Degrees from "./components/Degrees";
 import Projects from "./components/Projects";
-import Credits from "./components/Credits";
+import Veilles from "./components/Veilles";
+import EpreuveE4 from "./components/EpreuveE4";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import "./styles/Global.css";
@@ -20,7 +21,8 @@ function App() {
         <Degrees></Degrees>
         <Experience></Experience>
         <Projects></Projects>
-        <Credits></Credits>
+        <Veilles></Veilles>
+        <EpreuveE4></EpreuveE4>
       </div>
     </div>
   );

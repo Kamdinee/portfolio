@@ -1,6 +1,7 @@
 import React from "react";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import OpenInBrowserIcon from "@material-ui/icons/OpenInBrowser";
+import DescriptionIcon from "@material-ui/icons/Description";
 
 class ExternalLinks extends React.Component {
   constructor() {
@@ -19,6 +20,17 @@ class ExternalLinks extends React.Component {
   render() {
     return (
       <span className="external-links">
+        {this.props.docLink && (
+          <a className="doc-icon" href={this.props.docLink} download>
+            <DescriptionIcon
+              style={{
+                fontSize: 22,
+                color: "var(--lightest-slate)",
+                marginRight: "10px"
+              }}
+            ></DescriptionIcon>
+          </a>
+        )}
         <a className="github-icon" href={this.props.githubLink}>
           <GitHubIcon
             style={{
