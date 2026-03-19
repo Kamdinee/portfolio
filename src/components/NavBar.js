@@ -54,7 +54,7 @@ class NavBar extends React.Component {
       <Navbar className="bg-body-tertiary vertical-navbar">
         <Container className="flex-column navbar-container">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="w-100 flex-column justify-content-center">
+          <Navbar.Collapse id="basic-navbar-nav" className="w-100 flex-column justify-content-start">
             <FractalTree />
             <div className="navbar-logo" style={{ marginBottom: "2.5rem", marginTop: "-5px", textAlign: "center" }}>
               <a href="#intro" className="logo-text">
