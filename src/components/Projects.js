@@ -70,7 +70,7 @@ class Projects extends React.Component {
       "StageConnect": {
         desc:
           "Plateforme de mise en relation étudiants/entreprises dédiée aux offres de stage, intégrant des interfaces adaptées à chaque profil.",
-        techStack: "PHP, JS, MySQL",
+        techStack: "PHP, JS, MySQL,",
         link: "",
         open: "",
         doc: "/assets/stageconnect.pdf"
@@ -86,7 +86,7 @@ class Projects extends React.Component {
       "Challenge VR 2025": {
         desc:
           "Découverte de l'immersion en réalité virtuelle, structurée autour du choix d'un avatar et de l'exploration d'un monde interactif développé pour ce projet.",
-        techStack: "PHP, MySQL",
+        techStack: "PHP, MySQL, A-Frame",
         link: "https://github.com/flanOcaramel/Challenge2eVR",
         open: "",
         doc: "/assets/rapport final du challenge.pdf"
