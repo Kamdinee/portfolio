@@ -4,25 +4,32 @@ import Experience from "./components/Experience";
 import About from "./components/About";
 import Degrees from "./components/Degrees";
 import Projects from "./components/Projects";
-import Credits from "./components/Credits";
+import Veilles from "./components/Veilles";
+import EpreuveE5 from "./components/EpreuveE5";
 import NavBar from "./components/NavBar";
+import TopBar from "./components/TopBar";
+import { LanguageProvider } from "./LanguageContext";
 import "./App.css";
 import "./styles/Global.css";
 import "rsuite/dist/styles/rsuite-default.css";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar></NavBar>
-      <div id="content">
-        <Intro></Intro>
-        <About></About>
-        <Degrees></Degrees>
-        <Experience></Experience>
-        <Projects></Projects>
-        <Credits></Credits>
+    <LanguageProvider>
+      <div className="App">
+        <TopBar />
+        <NavBar></NavBar>
+        <div id="content">
+          <Intro></Intro>
+          <About></About>
+          <Degrees></Degrees>
+          <Experience></Experience>
+          <Projects></Projects>
+          <Veilles></Veilles>
+          <EpreuveE5></EpreuveE5>
+        </div>
       </div>
-    </div>
+    </LanguageProvider>
   );
 }
 

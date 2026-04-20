@@ -2,17 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  margin: auto;
-  max-width: 1000px;
   min-height: 100vh;
-  padding-top:480px;
 }
 
 .Typist {
   color: var(--lightest-slate);
   text-align: center;
-  font-size: 76px;
+  font-size: 50px;
   margin-top: -30px;
 }
 .Typist .Cursor--blinking {
@@ -21,31 +19,34 @@
 }
 
 .intro-title {
-  font-family: "NTR", sans-serif;
-  font-size: 86px;
+  font-family: var(--font-title);
+  font-size: 55px;
+  font-weight: 400;
 }
 .intro-name {
-  font-family: "NTR", sans-serif;
+  font-family: var(--font-title);
   color: var(--green-bright);
   font-weight: bold;
-  font-size: 86px;
+  font-size: 50px;
 }
 
 .intro-subtitle {
-  margin-top: -36px;
-  font-family: "NTR", sans-serif;
+  margin-top: -15px;
+  font-family: var(--font-main);
   color: var(--slate);
   text-align: center;
   font-weight: 300;
-  font-size: 48px;
+  font-size: 38px;
 }
 
 .intro-desc {
   color: var(--slate);
-  font-family: "NTR", sans-serif;
+  font-family: var(--font-main);
   font-size: 20px;
+  line-height: 1.6;
   text-align: center;
-  max-width: 600px;
+  max-width: 750px;
+  margin: 30px auto 0 auto;
   padding-bottom: 50px;
 }
 

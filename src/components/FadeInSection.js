@@ -11,8 +11,18 @@ export default function FadeInSection(props) {
         }
       });
     });
-    observer.observe(domRef.current);
-    return () => observer.unobserve(domRef.current);
+    
+    // On sauvegarde la référence actuelle dans une constante pour le nettoyage
+    const currentRef = domRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+    
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
   }, []);
   return (
     <div

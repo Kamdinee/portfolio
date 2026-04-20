@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import FadeInSection from "./FadeInSection";
 import { GraduationCap, MapPin, Calendar } from "lucide-react";
+import { LanguageContext } from "../LanguageContext";
 
 import "../styles/Degrees.css";
 
 export default function Degrees() {
+  const { t } = useContext(LanguageContext);
+  
   return (
     <section id="degrees">
       <FadeInSection>
         <h2 className="degrees-title">
-          Degrees
+          {t("degrees.title")}
           <span className="degrees-line"></span>
         </h2>
 
@@ -27,22 +30,21 @@ export default function Degrees() {
           <div className="degree-content">
             <h3 className="degree-name">
               <GraduationCap className="degree-title-icon" />
-              Advanced Technician’s Certificate – Ongoing
+              {t("deg.chopin.title")}
             </h3>
 
             <p className="degree-field">
-              Computer Services for Organizations — Software Solutions and
-              Business Applications.
+              {t("deg.chopin.desc")}
             </p>
 
             <div className="degree-sub">
               <MapPin className="sub-icon" />
-              High School Frederic Chopin — Nancy, France
+              Lycée Frédéric Chopin — Nancy, France
             </div>
 
             <div className="degree-sub">
               <Calendar className="sub-icon" />
-              From 01/09/2024 to 20/05/2026
+              {t("deg.chopin.date")}
             </div>
           </div>
         </div>
@@ -62,22 +64,21 @@ export default function Degrees() {
           <div className="degree-content">
             <h3 className="degree-name">
               <GraduationCap className="degree-title-icon" />
-              Bachelor’s Program – Incompleted
+              {t("deg.idmc.title")}
             </h3>
 
             <p className="degree-field">
-              Computer Services for Organizations — Software Solutions and
-              Business Applications.
+              {t("deg.idmc.desc")}
             </p>
 
             <div className="degree-sub">
               <MapPin className="sub-icon" />
-              Institute of Digital Sciences / MIASHS — Nancy, France
+              Institut des Sciences du Digital (IDMC) — Nancy, France
             </div>
 
             <div className="degree-sub">
               <Calendar className="sub-icon" />
-              From 13/09/2021 to 05/01/2023
+              {t("deg.idmc.date")}
             </div>
           </div>
         </div>
@@ -93,22 +94,21 @@ export default function Degrees() {
           <div className="degree-content">
             <h3 className="degree-name">
               <GraduationCap className="degree-title-icon" />
-              General Baccalaureate – Completed
+              {t("deg.bac.title")}
             </h3>
 
             <p className="degree-field">
-              General Baccalaureate — Specialization in Mathematics and Life
-              Sciences.
+              {t("deg.bac.desc")}
             </p>
 
             <div className="degree-sub">
               <MapPin className="sub-icon" />
-              High School Jacques Callot — Nancy, France
+              Lycée Jacques Callot — Nancy, France
             </div>
 
             <div className="degree-sub">
               <Calendar className="sub-icon" />
-              From 01/09/2018 to 07/07/2021
+              {t("deg.bac.date")}
             </div>
           </div>
         </div>

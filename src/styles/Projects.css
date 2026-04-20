@@ -1,8 +1,6 @@
 #projects {
-  margin: auto;
   padding-top: 100px;
-max-width: 1000px;
-min-height: 50vh;
+  min-height: 50vh;
 }
 
 .projects-grid {
@@ -10,6 +8,7 @@ min-height: 50vh;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   grid-gap: 10px;
 }
+
 @media (max-width: 1080px) {
   .projects-grid {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -22,16 +21,17 @@ min-height: 50vh;
   display: flex;
   flex-direction: column;
   /* align-items: flex-start; */
-  position: relative;
   height: 100%;
-  padding: 2rem 1.75rem;
-  background-color: var(--light-navy);
+  padding: 2.2rem 2rem;
+  background-color: var(--card-bg);
   border-radius: 16px;
+  box-shadow: 0 8px 30px var(--card-shadow);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .projects-card:hover {
   transform: translateY(-7px);
-  background-color: var(--lightest-navy);
+  background-color: var(--card-bg-hover);
 }
 
 .card-header {
@@ -41,7 +41,9 @@ min-height: 50vh;
   flex-direction: row;
   justify-content: space-between;
   border-bottom: none !important;
+  background-color: transparent !important;
 }
+
 .folder-icon {
   color: var(--green-bright);
 }
@@ -49,6 +51,7 @@ min-height: 50vh;
 .github-icon {
   margin-top: 6px;
 }
+
 .github-icon:hover {
   color: var(--green-bright);
 }
@@ -58,23 +61,25 @@ min-height: 50vh;
 }
 
 .card-title {
-  font-family: "NTR", sans-serif;
+  font-family: var(--font-title);
   color: var(--lightest-slate);
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 600;
 }
 
 .card-desc {
-  font-family: "NTR", sans-serif;
+  font-family: var(--font-main);
   color: var(--slate);
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 1.6;
   padding-bottom: 40px;
 }
 
 .card-tech {
-  font-family: "NTR", sans-serif;
+  font-family: var(--font-main);
+  font-weight: 600;
   color: var(--slate);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* Spotlight carousel */
@@ -95,35 +100,63 @@ min-height: 50vh;
 }
 
 .carousel img {
-  object-fit: contain;
+  object-fit: cover;
   height: 100%;
-  opacity: 0.5;
+  width: 100%;
+  opacity: 0.9;
+  filter: brightness(0.35);
+  /* Assombrit l'image pour que le texte reste lisible */
 }
 
 .carousel-caption {
-  font-family: "NTR", sans-serif;
+  font-family: "Inter", sans-serif;
   max-width: 500px;
   right: unset !important;
   left: 25% !important;
   user-select: none;
+  /* Laissons Bootstrap gérer le bottom par défaut comme dans le vrai code */
 }
 
+/* ---- RÉGLAGE DE LA HAUTEUR (HAUT/BAS) POUR CHAQUE PROJET ---- */
+/* Modifiez le "bottom" ou "top" pour monter ou descendre le texte d'un projet */
+
+/* Projet 1 (Agora Web) */
+.carousel-caption.caption-1 {
+  /* Modifiez cette valeur ! Plus elle est haute, plus le texte monte. */
+  bottom: 25% !important;
+}
+
+/* Projet 2 (Miratlas) */
+.carousel-caption.caption-2 {
+  bottom: 16% !important;
+}
+
+/* Projet 3 */
+.carousel-caption.caption-3 {
+  bottom: 2% !important;
+}
+
+/* ------------------------------------------------------------- */
+
 .carousel-caption h3 {
-  font-size: 38px;
+  font-size: 30px;
+  /* Baisse de 38px à 30px */
   font-weight: bold;
   color: var(--lightest-slate);
 }
 
 .carousel-caption p {
-  font-family: "NTR", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
+  /* Baisse de 18px à 14px */
   color: var(--lightest-slate);
 }
 
 .carousel-caption p.techStack {
-  font-family: "NTR", sans-serif;
-  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  /* Baisse de 14px à 11px */
   font-weight: bold;
   color: var(--green-bright);
 }
@@ -138,6 +171,7 @@ min-height: 50vh;
     padding-left: unset;
     padding-right: unset;
   }
+
   .carousel {
     display: none;
   }

@@ -5,8 +5,10 @@ import FadeInSection from "./FadeInSection";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import Carousel from "react-bootstrap/Carousel";
 import ExternalLinks from "./ExternalLinks";
+import { LanguageContext } from "../LanguageContext";
 
 class Projects extends React.Component {
+  static contextType = LanguageContext;
   constructor() {
     super();
     this.state = {
@@ -21,74 +23,85 @@ class Projects extends React.Component {
     });
   }
   render() {
+    const { t } = this.context;
     const spotlightProjects = {
-      "No Man's Land": {
-        title: "no man's land",
-        desc:
-          "A third-person survival-mode game where you battle against time and space to return to Earth.",
-        techStack: "C# (UNITY)",
-        link: "https://github.com/slakh96/no-mans-land",
-        open: "https://gazijarin.itch.io/no-mans-land",
-        image: "/assets/nomansland.png"
+      "Agora Web": {
+        title: "Agora Web",
+        desc: t("proj.agora.desc"),
+        techStack: "Symfony, PHP, Doctrine",
+        link: "https://github.com/Lavarice/Mission4/tree/sprint54",
+        open: "",
+        image: "/assets/agoraweb.png",
+        doc: "/assets/agoraweb_cr.pdf"
       },
-      Truth: {
-        title: "truth",
-        desc:
-          "A three.js simulation of the planet system revolving around a monolith.",
-        techStack: "JAVASCRIPT (THREE.JS)",
-        link: "https://github.com/gazijarin/truth",
-        open: "https://gazijarin.github.io/Truth/",
-        image: "/assets/truth.png"
+      "Miratlas": {
+        title: "Miratlas",
+        desc: t("proj.mir.desc"),
+        techStack: "Laravel, Tailwind, Docker",
+        link: "",
+        open: "",
+        doc: "/assets/miratlas.pdf",
+        image: "/assets/miratlas.png"
       },
-      "Tall Tales": {
-        title: "tall tales",
-        desc:
-          "A multi-player story-telling web game for 3-5 players. Its usage of sockets to allow for concurrent gameplay, connecting friends across the internet.",
-        techStack: "NODE.JS (SOCKET.IO), REACT.JS, MONGODB",
-        link: "https://github.com/gazijarin/TallTales",
-        open: "https://talltales.herokuapp.com/",
-        image: "/assets/talltales.png"
-      },
-      Portfolio: {
-        title: "portfolio.js",
-        desc:
-          "A small JS library that helps with clear and succinct data presentation.",
-        techStack: "NODE.JS (EXPRESS.JS)",
-        link: "https://github.com/gazijarin/Portfolio.js",
-        open: "https://afternoon-ocean-92382.herokuapp.com/",
-        image: "/assets/portfolio.png"
+      "Yabonlapub": {
+        title: "Yabonlapub",
+        desc: t("proj.yab.desc"),
+        techStack: "Next.js, Tailwind, Neon",
+        link: "https://github.com/cyrille33000/site-yabonlapub",
+        open: "",
+        doc: "/assets/yabonlapub.pdf",
+        image: "/assets/yabonlapub.png"
       }
     };
     const projects = {
       "Omori Weather": {
-        desc:
-          "A weather widget inspired by the game Omori, with dynamic moods where characters react to the weather.",
-        techStack: "Electron, Weather API, HTML/CSS/JS",
+        desc: t("proj.omo.desc"),
+        techStack: "Electron, API Météo, HTML/CSS/JS",
         link: "https://github.com/Kamdinee/omori-weather",
-        open: ""
+        open: "",
+        doc: ""
       },
-      "Lorem ipsum dolor sit amet consect2": {
-        desc:
-          "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque",
-        techStack: "Lorem ipsum dolor sit amet",
+      "Agora Mobile": {
+        desc: t("proj.agomob.desc"),
+        techStack: "Android Studio, JS, framework Metro",
+        link: "https://github.com/MartinLe0/AgoraMobile",
+        open: "",
+        doc: "/assets/agoramobile.pdf"
+      },
+      "StageConnect": {
+        desc: t("proj.stage.desc"),
+        techStack: "PHP, JS, MySQL,",
         link: "",
-        open: ""
+        open: "",
+        doc: "/assets/stageconnect.pdf"
       },
-      "Lorem ipsum dolor sit amet consect3": {
-        desc:
-          "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque",
-        techStack: "Lorem ipsum dolor sit amet",
+      "WordPress": {
+        desc: t("proj.wp.desc"),
+        techStack: "WordPress",
         link: "",
-        open: ""
+        open: "",
+        doc: ""
       },
-
-
+      "Challenge VR 2025": {
+        desc: t("proj.vr.desc"),
+        techStack: "PHP, MySQL, A-Frame",
+        link: "https://github.com/flanOcaramel/Challenge2eVR",
+        open: "",
+        doc: "/assets/rapport final du challenge.pdf"
+      },
+      "Veille Informatique": {
+        desc: t("proj.veilleinfo.desc"),
+        techStack: "n8n, IA, Automatisation",
+        link: "",
+        open: "",
+        doc: "/assets/CR - Méthodologie de veille Informationnelle.pdf"
+      }
     };
 
     return (
       <div id="projects">
         <div className="section-header ">
-          <span className="section-title">Projects</span>
+          <span className="section-title">{t("proj.title")}</span>
         </div>
         <Carousel>
           {Object.keys(spotlightProjects).map((key, i) => (
@@ -99,17 +112,18 @@ class Projects extends React.Component {
                 alt={key}
               />
               <div className="caption-bg">
-                <Carousel.Caption>
+                <Carousel.Caption className={`caption-${i + 1}`}>
                   <h3>{spotlightProjects[key]["title"]}</h3>
-                  <p>
-                    {spotlightProjects[key]["desc"]}
+                  <div className="project-description">
+                    <p>{spotlightProjects[key]["desc"]}</p>
                     <p className="techStack">
                       {spotlightProjects[key]["techStack"]}
                     </p>
-                  </p>
+                  </div>
                   <ExternalLinks
                     githubLink={spotlightProjects[key]["link"]}
                     openLink={spotlightProjects[key]["open"]}
+                    docLink={spotlightProjects[key]["doc"]}
                   ></ExternalLinks>
                 </Carousel.Caption>
               </div>
@@ -130,6 +144,7 @@ class Projects extends React.Component {
                     <ExternalLinks
                       githubLink={projects[key]["link"]}
                       openLink={projects[key]["open"]}
+                      docLink={projects[key]["doc"]}
                     ></ExternalLinks>
                   </div>
 

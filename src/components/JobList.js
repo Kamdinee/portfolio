@@ -6,6 +6,8 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import FadeInSection from "./FadeInSection";
+import { LanguageContext } from "../LanguageContext";
+import { useContext } from "react";
 
 const isHorizontal = window.innerWidth < 600;
 
@@ -80,16 +82,28 @@ const useStyles = makeStyles(theme => ({
 const JobList = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const { t } = useContext(LanguageContext);
 
   const experienceItems = {
-    Miratlas: {
-      jobTitle: "Software Development Engineer @",
-      duration: "MAY 2025 - JULY 2025",
+    Yabonlapub: {
+      jobTitle: t("exp.yab.title"),
+      duration: t("exp.yab.duration"),
       desc: [
-        "Developed front-end interfaces and a SSO dashboard using modern tools such as Tailwind and Grafana.",
-        "Implemented API-driven features for dynamic visualization of spatial data captured by the SkyMonitor system.",
-        "Improved the user experience of a specialized observation platform.",
-        "Gained experience with Docker, Laravel, and agile collaboration within a team"
+        t("exp.yab.desc1"),
+        t("exp.yab.desc2"),
+        t("exp.yab.desc3"),
+        t("exp.yab.desc4"),
+        t("exp.yab.desc5")
+      ]
+    },
+    Miratlas: {
+      jobTitle: t("exp.mir.title"),
+      duration: t("exp.mir.duration"),
+      desc: [
+        t("exp.mir.desc1"),
+        t("exp.mir.desc2"),
+        t("exp.mir.desc3"),
+        t("exp.mir.desc4")
       ]
     },
   };
