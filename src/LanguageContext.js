@@ -1,0 +1,218 @@
+import React, { createContext, useState } from 'react';
+
+export const LanguageContext = createContext();
+
+export const LanguageProvider = ({ children }) => {
+  const [lang, setLang] = useState('en');
+  
+  const toggleLang = () => {
+    setLang(prev => (prev === 'en' ? 'fr' : 'en'));
+  };
+
+  const translations = {
+    en: {
+      "nav.about": "About",
+      "nav.degrees": "Degrees",
+      "nav.experience": "Experience",
+      "nav.projects": "Projects",
+      "nav.veilles": "Technology Watch",
+      "nav.epreuve": "E5 Exam",
+      
+      "intro.salut": "hi, i'm ",
+      "intro.et": "and i code sometimes.",
+      "intro.desc": "I'm a second-year software development student based in Nancy, France. Passionate about creating clean, minimalist, and visually appealing websites that combine design and functionality to deliver great user experiences.",
+      
+      "about.title": "/ about",
+      "about.p1.1": "I am a second-year ",
+      "about.p1.bold1": "BTS SIO (SLAM OPTION)",
+      "about.p1.2": " student based in Nancy, France. I am currently looking for a ",
+      "about.p1.bold2": "7-week unpaid intership",
+      "about.p1.3": " in the software development field, where I can sharpen my skills, contribute to real projects, and grow as a ",
+      "about.p1.bold3": "developer.",
+      "about.tech": "Some technologies I have been working with:",
+      "about.p2": "Outside of my studies, I have a strong interest in innovation and astronomy. I also love playing video games and watching movies.",
+      "about.cv": "My Resume",
+      
+      "degrees.title": "/ degrees",
+      "deg.chopin.title": "Advanced Technician's Certificate — Ongoing",
+      "deg.chopin.desc": "Computer Services for Organizations — Software Solutions and Business Applications.",
+      "deg.chopin.date": "From 01/09/2024 to 20/05/2026",
+      "deg.idmc.title": "Bachelor's Program — Incompleted",
+      "deg.idmc.desc": "Computer Services for Organizations — Software Solutions and Business Applications.",
+      "deg.idmc.date": "From 13/09/2021 to 05/01/2023",
+      "deg.bac.title": "General Baccalaureate — Completed",
+      "deg.bac.desc": "General Baccalaureate — Specialization in Mathematics and Life Sciences.",
+      "deg.bac.date": "From 01/09/2018 to 07/07/2021",
+      
+      "exp.title": "/ experience",
+      "exp.yab.title": "Software Developer @",
+      "exp.yab.duration": "JANUARY 2026 - FEBRUARY 2026",
+      "exp.yab.desc1": "Visual and ergonomic evolution of the site using Next.js and Tailwind.",
+      "exp.yab.desc2": "Set up Docker infrastructure and automated production on Vercel.",
+      "exp.yab.desc3": "Secured and improved Neon database managed via Prisma ORM.",
+      "exp.yab.desc4": "Created admin panel, authentication system through Next.js, and email sending via Clerk.",
+      "exp.yab.desc5": "Created several game modules coded in Python such as Pacman or Tetris.",
+      
+      "exp.mir.title": "Software Development Engineer @",
+      "exp.mir.duration": "MAY 2025 - JULY 2025",
+      "exp.mir.desc1": "Developed front-end interfaces and a SSO dashboard using modern tools such as Tailwind and Grafana.",
+      "exp.mir.desc2": "Implemented API-driven features for dynamic visualization of spatial data captured by the SkyMonitor system.",
+      "exp.mir.desc3": "Improved the user experience of a specialized observation platform.",
+      "exp.mir.desc4": "Gained experience with Docker, Laravel, and agile collaboration within a team.",
+      
+      "proj.title": "/ projects",
+      "proj.agora.desc": "Application of the AGORA youth club data administration site developed in the 2nd year of BTS.",
+      "proj.mir.desc": "Customer Dashboard / SSO that displays summary information from their Skymonitor via API.",
+      "proj.yab.desc": "Improvement and securing of the Yabonlapub charity site, designed to donate advertising revenue to associations.",
+      "proj.omo.desc": "A weather widget inspired by the game Omori, with dynamic moods where characters react to the weather.",
+      "proj.agomob.desc": "Mobile application created on mandate from MJC Agora to publish information about games, brands, platforms, genres, and PEGI ratings.",
+      "proj.stage.desc": "Student/company matching platform dedicated to internship offers, integrating tailored interfaces for each profile.",
+      "proj.wp.desc": "Development of a portfolio via the WordPress CMS in order to discover its features and ecosystem.",
+      "proj.vr.desc": "Discovery of virtual reality immersion, structured around choosing an avatar and exploring an interactive world developed for this project.",
+      "proj.veilleinfo.desc": "Implementation of a technology watch methodology. I am also currently working on an n8n workflow to automate the task with AI.",
+      
+      "veille.title": "/ technology watch",
+      "veille.q1": "What is technology watch?",
+      "veille.a1": "Technology watch consists of continuously getting informed about innovations and technical evolutions in a sector. It allows anticipating changes (new concepts, patents, processes) and evaluating their impact on our society.",
+      "veille.q2": "My watch tools",
+      "veille.a2": "To carry out this watch effectively, I use weekly:",
+      "veille.sub": "Subject of my watch: ",
+      "veille.sub_color": "AI and its impact on our future",
+      "veille.a3": "Artificial intelligence is profoundly transforming all areas of contemporary society. To explore this phenomenon, I have structured my watch around two major themes:",
+      "veille.t1": "Theme 1: New releases in AI",
+      "veille.c1": "Claude in Excel: a real productivity boost",
+      "veille.cd1": "FEB 12, 2026",
+      "veille.cdesc1": "The integration of the Claude model in Microsoft Excel allows analyzing, structuring, and modifying complex spreadsheets in real time using AI.",
+      "veille.c2": "Launch of Gemini 3.1 Pro on Google Cloud",
+      "veille.cd2": "FEB 20, 2026",
+      "veille.cdesc2": "Google announces Gemini 3.1 Pro on Vertex AI, a major step forward in the Gemini 3 series offering superior reasoning optimized for complex problem solving.",
+      "veille.c3": "The ultimate guide: prompting on Nano Banana 2",
+      "veille.cd3": "MARC 05, 2026",
+      "veille.cdesc3": "Based on the Gemini 3 family, Google's new image generation model aims to eliminate repetitive trial-and-error by finally precisely understanding natural language requests.",
+      "veille.t2": "Theme 2: Long-term risks of AI",
+      "veille.d1": "Existential risk: the urgency of defining consciousness",
+      "veille.dd1": "FEB 02, 2026",
+      "veille.ddesc1": "Researchers warn that rapid advances in AI are outpacing our understanding of consciousness, creating serious long-term ethical dilemmas.",
+      "veille.d2": "ChatGPT as a therapist: serious ethical risks",
+      "veille.dd2": "MAR 02, 2026",
+      "veille.ddesc2": "As the use of chatbots for psychological support explodes, Brown University sounds the alarm on relying on systems incapable of true empathy.",
+      "veille.d3": "Expertise: responsible uses of AI",
+      "veille.dd3": "MAR 18, 2026",
+      "veille.ddesc3": "Experts agree on a major point: artificial intelligence should serve as a thinking partner, but must never substitute human critical judgment.",
+      "veille.auto": "Advanced automation with n8n",
+      "veille.auto_desc": "To optimize my watch, I am currently developing an automated workflow via n8n. Eventually, this network of AI agents will daily search for key news, use ChatGPT to filter and summarize them, and save the best results on Notion before sending them via email.",
+
+      "epreuve.title": "/ e5 exam",
+      "epreuve.p1": "The E5 exam is a key exam of the BTS SIO, it must be composed of at least two projects having a common context related to the chosen option (SLAM for my case).",
+      "epreuve.p2": "The objective of this exam is to evaluate the candidate on one of the two professional situations they have completed during the 2 years of training.",
+      "epreuve.p3": "This exam is also accompanied by a skills grid, skills which must be described and achieved during the presented projects.",
+      "epreuve.btn": "Download"
+    },
+    fr: {
+      "nav.about": "Présentation",
+      "nav.degrees": "Formations",
+      "nav.experience": "Expériences",
+      "nav.projects": "Projets",
+      "nav.veilles": "Veilles",
+      "nav.epreuve": "Épreuve E5",
+      
+      "intro.salut": "hi, i'm ",
+      "intro.et": "et je code parfois.",
+      "intro.desc": "Je suis un étudiant en 2ème année de développement logiciel basé à Nancy, France. Passionné par la création de sites web propres, minimalistes et visuellement attrayants qui combinent design et fonctionnalité pour offrir d'excellentes expériences utilisateur.",
+
+      "about.title": "/ presentation",
+      "about.p1.1": "Je suis un étudiant en 2ème année de ",
+      "about.p1.bold1": "BTS SIO (OPTION SLAM)",
+      "about.p1.2": " basé à Nancy, France. Je suis actuellement à la recherche d'une ",
+      "about.p1.bold2": "alternance en développement",
+      "about.p1.3": " pour poursuivre mes études après le BTS, où je pourrai perfectionner mes compétences, contribuer à de vrais projets, et grandir en tant que ",
+      "about.p1.bold3": "développeur.",
+      "about.tech": "Quelques technologies avec lesquelles j'ai travaillé :",
+      "about.p2": "En dehors de mes études, j'ai un fort intérêt pour l'innovation et l'astronomie. J'aime aussi jouer aux jeux vidéo et regarder des films.",
+      "about.cv": "Mon CV",
+
+      "degrees.title": "/ formations",
+      "deg.chopin.title": "Brevet de Technicien Supérieur – En cours",
+      "deg.chopin.desc": "Services Informatiques aux Organisations — Solutions Logicielles et Applications Métiers (SLAM).",
+      "deg.chopin.date": "Du 01/09/2024 au 20/05/2026",
+      "deg.idmc.title": "Licence – Interrompue",
+      "deg.idmc.desc": "Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales (MIASHS).",
+      "deg.idmc.date": "Du 13/09/2021 au 05/01/2023",
+      "deg.bac.title": "Baccalauréat Général – Obtenu",
+      "deg.bac.desc": "Baccalauréat Général — Spécialités Mathématiques et Sciences de la Vie et de la Terre (SVT).",
+      "deg.bac.date": "Du 01/09/2018 au 07/07/2021",
+
+      "exp.title": "/ experiences",
+      "exp.yab.title": "Développeur informatique @",
+      "exp.yab.duration": "JANVIER 2026 - FÉVRIER 2026",
+      "exp.yab.desc1": "Évolution visuel et ergonomique du site en Next.js et Tailwind.",
+      "exp.yab.desc2": "Mise en place de l'infrastructure Docker et production automatisé sur Vercel.",
+      "exp.yab.desc3": "Sécurisation et amélioration de la BDD sous Neon gérées via l'ORM Prisma.",
+      "exp.yab.desc4": "Création de panel admin, d'un système d'authentification par Next.js et envoi de mail via Clerk.",
+      "exp.yab.desc5": "Créations de quelques modules jeux codés en python comme Pacman ou Tetris.",
+      
+      "exp.mir.title": "Ingénieur en Développement Logiciel @",
+      "exp.mir.duration": "MAI 2025 - JUILLET 2025",
+      "exp.mir.desc1": "Développement d'interfaces front-end et d'un tableau de bord SSO avec des outils modernes tels que Tailwind et Grafana.",
+      "exp.mir.desc2": "Mise en place de fonctionnalités basées sur des API pour la visualisation dynamique de données spatiales capturées par le système SkyMonitor.",
+      "exp.mir.desc3": "Amélioration de l'expérience utilisateur pour une plateforme d'observation spécialisée.",
+      "exp.mir.desc4": "Acquisition d'expérience avec Docker, Laravel, et la collaboration agile en équipe.",
+      
+      "proj.title": "/ projets",
+      "proj.agora.desc": "Application du site d'administration des données de la MJC AGORA développé en 2ème année de BTS",
+      "proj.mir.desc": "Customer Dashboard / SSO qui affichent aux clients des informations récapitulatives de leur Skymonitor via API",
+      "proj.yab.desc": "Amélioration et sécurisation du site caritatif Yabonlapub, conçu pour reverser les revenus générés par la publicité à des associations.",
+      "proj.omo.desc": "Un widget météo inspiré du jeu Omori, avec des humeurs dynamiques où les personnages réagissent à la météo.",
+      "proj.agomob.desc": "Application mobile créée sur mandat de la MJC Agora pour publier des informations sur les jeux, marques, plateformes, genres et classement PEGI.",
+      "proj.stage.desc": "Plateforme de mise en relation étudiants/entreprises dédiée aux offres de stage, intégrant des interfaces adaptées à chaque profil.",
+      "proj.wp.desc": "Développement d'un portfolio via le CMS WordPress dans le but d'en découvrir les fonctionnalités et l'écosystème.",
+      "proj.vr.desc": "Découverte de l'immersion en réalité virtuelle, structurée autour du choix d'un avatar et de l'exploration d'un monde interactif développé pour ce projet.",
+      "proj.veilleinfo.desc": "Mise en place d'une méthodologie de veille technologique. Je travaille également sur un workflow n8n pour automatiser cette tâche à l'aide de l'IA.",
+
+      "veille.title": "/ veilles",
+      "veille.q1": "Qu'est-ce que la veille technologique ?",
+      "veille.a1": "La veille technologique consiste à s'informer en continu sur les innovations et évolutions techniques d'un secteur. Cela permet d'anticiper les changements (nouveaux concepts, brevets, processus) et d'évaluer leur impact sur notre société.",
+      "veille.q2": "Les outils de ma veille",
+      "veille.a2": "Pour mener à bien cette veille de manière efficace, j'utilise hebdomadairement :",
+      "veille.sub": "Sujet de ma veille : ",
+      "veille.sub_color": "L'IA et son impact dans notre avenir",
+      "veille.a3": "L'intelligence artificielle transforme profondément tous les domaines de la société contemporaine. Afin d'explorer ce phénomène, j'ai structuré ma veille autour de deux thèmes majeurs :",
+      "veille.t1": "Thème 1 : Nouveautés sur l'IA",
+      "veille.c1": "Claude dans Excel : un vrai gain de productivité",
+      "veille.cd1": "12 FÉVR. 2026",
+      "veille.cdesc1": "L'intégration du modèle Claude dans Microsoft Excel permet d'analyser, de structurer et de modifier en temps réel des feuilles de calcul complexes grâce à l'IA.",
+      "veille.c2": "Lancement de Gemini 3.1 Pro sur Google Cloud",
+      "veille.cd2": "20 FÉVR. 2026",
+      "veille.cdesc2": "Google annonce Gemini 3.1 Pro sur Vertex AI, une avancée majeure dans la série Gemini 3 offrant un raisonnement supérieur et optimisé pour la résolution de problèmes complexes.",
+      "veille.c3": "Le guide ultime : le prompt sous Nano Banana 2",
+      "veille.cd3": "05 MARS 2026",
+      "veille.cdesc3": "Basé sur la famille Gemini 3, le nouveau modèle de génération d'images de Google vise à supprimer les essais à répétition en comprenant enfin précisément les requêtes en langage naturel.",
+      "veille.t2": "Thème 2 : Les risques de l'IA à long terme",
+      "veille.d1": "Risque existentiel : l'urgence de définir la conscience",
+      "veille.dd1": "02 FÉVR. 2026",
+      "veille.ddesc1": "Des chercheurs alertent sur le fait que les avancées rapides de l'IA dépassent notre compréhension de la conscience, créant de sérieux dilemmes éthiques de long terme.",
+      "veille.d2": "ChatGPT en thérapeute : de graves risques éthiques",
+      "veille.dd2": "02 MARS 2026",
+      "veille.ddesc2": "Alors que l'usage de chatbots pour du soutien psychologique explose, l'Université Brown tire la sonnette d'alarme sur le recours à des systèmes incapables de réelle empathie.",
+      "veille.d3": "Expertise : les usages responsables de l'IA",
+      "veille.dd3": "18 MARS 2026",
+      "veille.ddesc3": "Des experts s'entendent sur un point majeur : l'intelligence artificielle doit servir de partenaire de réflexion, mais ne doit jamais se substituer au jugement critique humain.",
+      "veille.auto": "Automatisation avancée avec n8n",
+      "veille.auto_desc": "Pour optimiser ma veille, je développe actuellement un workflow automatisé via n8n. À terme, ce réseau d'agents IA cherchera chaque jour les actualités clés, utilisera ChatGPT pour les filtrer et les résumer, puis sauvegardera les meilleurs résultats sur Notion avant de me les envoyer par e-mail.",
+
+      "epreuve.title": "/ épreuve e5",
+      "epreuve.p1": "L'épreuve E5 est une épreuve clé du BTS SIO, elle doit être composée de minimum deux projets ayant un contexte commun en rapport avec l'option choisie (SLAM pour mon cas).",
+      "epreuve.p2": "L'objectif de cette épreuve est d'évaluer le candidat sur une des deux situations professionnelles qu'il aura réalisées sur les 2 ans de formation.",
+      "epreuve.p3": "Cette épreuve est aussi accompagnée d'un tableau des compétences, compétences qui devront être décrites et réalisées au cours des projets présentés.",
+      "epreuve.btn": "Télécharger"
+    }
+  };
+
+  const t = (key) => translations[lang][key] || key;
+
+  return (
+    <LanguageContext.Provider value={{ lang, toggleLang, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};

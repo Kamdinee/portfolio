@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import FadeInSection from "./FadeInSection";
 import { GraduationCap, MapPin, Calendar } from "lucide-react";
+import { LanguageContext } from "../LanguageContext";
 
 import "../styles/Degrees.css";
 
 export default function Degrees() {
+  const { t } = useContext(LanguageContext);
+  
   return (
     <section id="degrees">
       <FadeInSection>
         <h2 className="degrees-title">
-          / formations
+          {t("degrees.title")}
           <span className="degrees-line"></span>
         </h2>
 
@@ -27,12 +30,11 @@ export default function Degrees() {
           <div className="degree-content">
             <h3 className="degree-name">
               <GraduationCap className="degree-title-icon" />
-              Brevet de Technicien Supérieur – En cours
+              {t("deg.chopin.title")}
             </h3>
 
             <p className="degree-field">
-              Services Informatiques aux Organisations — Solutions Logicielles et
-              Applications Métiers (SLAM).
+              {t("deg.chopin.desc")}
             </p>
 
             <div className="degree-sub">
@@ -42,7 +44,7 @@ export default function Degrees() {
 
             <div className="degree-sub">
               <Calendar className="sub-icon" />
-              Du 01/09/2024 au 20/05/2026
+              {t("deg.chopin.date")}
             </div>
           </div>
         </div>
@@ -62,11 +64,11 @@ export default function Degrees() {
           <div className="degree-content">
             <h3 className="degree-name">
               <GraduationCap className="degree-title-icon" />
-              Licence – Interrompue
+              {t("deg.idmc.title")}
             </h3>
 
             <p className="degree-field">
-              Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales (MIASHS).
+              {t("deg.idmc.desc")}
             </p>
 
             <div className="degree-sub">
@@ -76,7 +78,7 @@ export default function Degrees() {
 
             <div className="degree-sub">
               <Calendar className="sub-icon" />
-              Du 13/09/2021 au 05/01/2023
+              {t("deg.idmc.date")}
             </div>
           </div>
         </div>
@@ -92,11 +94,11 @@ export default function Degrees() {
           <div className="degree-content">
             <h3 className="degree-name">
               <GraduationCap className="degree-title-icon" />
-              Baccalauréat Général – Obtenu
+              {t("deg.bac.title")}
             </h3>
 
             <p className="degree-field">
-              Baccalauréat Général — Spécialités Mathématiques et Sciences de la Vie et de la Terre (SVT).
+              {t("deg.bac.desc")}
             </p>
 
             <div className="degree-sub">
@@ -106,7 +108,7 @@ export default function Degrees() {
 
             <div className="degree-sub">
               <Calendar className="sub-icon" />
-              Du 01/09/2018 au 07/07/2021
+              {t("deg.bac.date")}
             </div>
           </div>
         </div>

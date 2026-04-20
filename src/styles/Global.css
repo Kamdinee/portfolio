@@ -11,4 +11,71 @@
   --white: #e6f1ff;
   --green-bright: #64ffda;
   --green-tint: rgba(100, 255, 218, 0.1);
+  --flower-blur: #6bf0ff;
+  --flower-leaf-bg: #a7ffee;
+  --flower-leaf-grad-1: #54b8aa;
+  --flower-leaf-grad-2: #39c6d6;
+  --flower-line-1: #14757a;
+  --flower-light-1: rgb(255, 251, 0);
+  --flower-light-2: #23f0ff;
+  
+  /* Variables typographiques */
+  --font-main: "Inter", sans-serif;
+  --font-title: "Inter", sans-serif;
+  
+  /* Variables sidebar */
+  --sidebar-bg: #0f172a;
+  --sidebar-bg-grad: rgba(100, 255, 218, 0.15);
+  --sidebar-text: #ccd6f6;
+  --sidebar-link: #a8b2d1;
+  --sidebar-link-active: #ffffff;
+  
+  --experience-indicator: var(--green-bright);
+  
+  /* Variables Cartes */
+  --card-bg: #112240;
+  --card-bg-hover: #233554;
+  --card-shadow: rgba(2, 12, 27, 0.7);
+}
+
+[data-theme='light'] {
+  --dark-navy: #584d44;
+  --navy: #f4efe6;       /* Fond beige super clair et élégant */
+  --alt-bg: #eBE5D9;     /* Slightly darker beige for variation */
+  --light-navy: #beada1;
+  --lightest-navy: #ab7d63;
+  --navy-shadow: rgba(51, 50, 50, 0.08); /* Ombre douce et sombre */
+  --slate: #584d44;      /* Taupe pour texte secondaire */
+  --light-slate: #584d44; 
+  --lightest-slate: #333232; /* Charcoal noir/marron pour texte principal */
+  --white: #ffffff;
+  --green-bright: #ab7d63; /* Accent Terracotta */
+  --green-tint: rgba(171, 125, 99, 0.15);
+
+  /* Variables sidebar (Menu gauche foncé) */
+  --sidebar-bg: #333232; /* Charcoal noir/marron */
+  --sidebar-bg-grad: #42362f; /* Noir/marron teinté terracotta opaque */
+  --sidebar-text: #f4efe6;
+  --sidebar-link: #beada1;
+  --sidebar-link-active: #ab7d63;
+  
+  --experience-indicator: #333232;
+  
+  /* Variables spécifiques aux fleurs */
+  --flower-blur: rgba(190, 173, 161, 0.5); /* Beige pastel */
+  --flower-leaf-bg: #584d44; /* Olive/taupe */
+  --flower-leaf-grad-1: #ab7d63; /* Terracotta */
+  --flower-leaf-grad-2: #333232; /* Dark charcoal */
+  --flower-line-1: #584d44; 
+  --flower-light-1: #f4efe6;
+  --flower-light-2: #beada1;
+
+  /* Variables Cartes (Fond blanc propre au lieu du taupe) */
+  --card-bg: #ffffff; 
+  --card-bg-hover: #faf8f5;
+  --card-shadow: rgba(51, 50, 50, 0.08);
+
+  /* Variables typographiques */
+  --font-main: "Manrope", sans-serif;
+  --font-title: "Noto Serif Display", serif;
 }

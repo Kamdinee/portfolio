@@ -19,11 +19,12 @@
 }
 
 .intro-title {
-  font-family: "Inter", sans-serif;
-  font-size: 50px;
+  font-family: var(--font-title);
+  font-size: 55px;
+  font-weight: 400;
 }
 .intro-name {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-title);
   color: var(--green-bright);
   font-weight: bold;
   font-size: 50px;
@@ -31,7 +32,7 @@
 
 .intro-subtitle {
   margin-top: -15px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-main);
   color: var(--slate);
   text-align: center;
   font-weight: 300;
@@ -40,7 +41,7 @@
 
 .intro-desc {
   color: var(--slate);
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-main);
   font-size: 20px;
   line-height: 1.6;
   text-align: center;

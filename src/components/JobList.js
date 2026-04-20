@@ -6,6 +6,8 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import FadeInSection from "./FadeInSection";
+import { LanguageContext } from "../LanguageContext";
+import { useContext } from "react";
 
 const isHorizontal = window.innerWidth < 600;
 
@@ -80,27 +82,28 @@ const useStyles = makeStyles(theme => ({
 const JobList = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const { t } = useContext(LanguageContext);
 
   const experienceItems = {
     Yabonlapub: {
-      jobTitle: "Développeur informatique @",
-      duration: "JANVIER 2026 - FÉVRIER 2026",
+      jobTitle: t("exp.yab.title"),
+      duration: t("exp.yab.duration"),
       desc: [
-        "Évolution visuel et ergonomique du site en Next.js et Tailwind.",
-        "Mise en place de l'infrastructure Docker et production automatisé sur Vercel.",
-        "Sécurisation et amélioration de la BDD sous Neon gérées via l'ORM Prisma.",
-        "Création de panel admin, d'un système d'authentification par Next.js et envoi de mail via Clerk.",
-        "Créations de quelques modules jeux codés en python comme Pacman ou Tetris."
+        t("exp.yab.desc1"),
+        t("exp.yab.desc2"),
+        t("exp.yab.desc3"),
+        t("exp.yab.desc4"),
+        t("exp.yab.desc5")
       ]
     },
     Miratlas: {
-      jobTitle: "Ingénieur en Développement Logiciel @",
-      duration: "MAI 2025 - JUILLET 2025",
+      jobTitle: t("exp.mir.title"),
+      duration: t("exp.mir.duration"),
       desc: [
-        "Développement d'interfaces front-end et d'un tableau de bord SSO avec des outils modernes tels que Tailwind et Grafana.",
-        "Mise en place de fonctionnalités basées sur des API pour la visualisation dynamique de données spatiales capturées par le système SkyMonitor.",
-        "Amélioration de l'expérience utilisateur pour une plateforme d'observation spécialisée.",
-        "Acquisition d'expérience avec Docker, Laravel, et la collaboration agile en équipe."
+        t("exp.mir.desc1"),
+        t("exp.mir.desc2"),
+        t("exp.mir.desc3"),
+        t("exp.mir.desc4")
       ]
     },
   };

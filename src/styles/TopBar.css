@@ -1,0 +1,42 @@
+.topbar-container {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999;
+  font-family: var(--font-main);
+  color: var(--lightest-slate);
+}
+
+.minimal-btn {
+  background: transparent;
+  border: none;
+  color: var(--lightest-slate);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  font-family: var(--font-main);
+  outline: none;
+}
+
+.minimal-btn:hover {
+  color: var(--green-bright);
+}
+
+.theme-btn:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.separator {
+  color: var(--slate);
+  font-size: 16px;
+  font-weight: 300;
+  user-select: none;
+}

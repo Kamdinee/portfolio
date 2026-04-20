@@ -3,8 +3,10 @@ import { createPortal } from "react-dom";
 import FadeInSection from "./FadeInSection";
 import "../styles/EpreuveE5.css";
 import "../styles/About.css";
+import { LanguageContext } from "../LanguageContext";
 
 class EpreuveE5 extends React.Component {
+  static contextType = LanguageContext;
   constructor() {
     super();
     this.state = {
@@ -13,23 +15,18 @@ class EpreuveE5 extends React.Component {
   }
 
   render() {
+    const { t } = this.context;
     return (
       <div id="epreuve-e5">
         <div className="section-header ">
-          <span className="section-title">/ épreuve e5 </span>
+          <span className="section-title">{t("epreuve.title")}</span>
         </div>
         <FadeInSection>
           <div className="e5-content">
             <div className="e5-description">
-              <p>
-                L'épreuve E5 est <b>une épreuve clé</b> du BTS SIO, elle doit être composée de minimum deux projets ayant un contexte commun en rapport avec l'option choisie <b>(SLAM pour mon cas)</b>.
-              </p>
-              <p>
-                L'objectif de cette épreuve est d'évaluer le candidat sur une des deux situations professionnelles qu'il aura réalisées sur les 2 ans de formation.
-              </p>
-              <p>
-                Cette épreuve est aussi accompagnée d'un tableau des compétences, compétences qui devront être décrites et réalisées au cours des projets présentés.
-              </p>
+              <p>{t("epreuve.p1")}</p>
+              <p>{t("epreuve.p2")}</p>
+              <p>{t("epreuve.p3")}</p>
             </div>
 
             <div className="e5-grid-container">
@@ -45,7 +42,7 @@ class EpreuveE5 extends React.Component {
               <div className="cv-button-container hover-download-button" style={{ display: "flex", justifyContent: "center" }}>
                 <a href="/assets/grille.xlsx" download="grille.xlsx" style={{ textDecoration: "none" }}>
                   <button className="star-button">
-                    Télécharger
+                    {t("epreuve.btn")}
                     {[1, 2, 3, 4, 5, 6].map((starNum) => (
                       <div className={`star-${starNum}`} key={starNum}>
                         <svg
@@ -80,7 +77,7 @@ class EpreuveE5 extends React.Component {
             className="custom-modal-overlay"
             onClick={() => this.setState({ showModal: false })}
           >
-            <div className="custom-modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="custom-modal-content" onClick={() => this.setState({ showModal: false })}>
               <img src="/assets/grilles.png" alt="Zoom Grille E5" />
             </div>
           </div>,

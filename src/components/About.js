@@ -1,8 +1,10 @@
 import React from "react";
 import "../styles/About.css";
 import FadeInSection from "./FadeInSection";
+import { LanguageContext } from "../LanguageContext";
 
 class About extends React.Component {
+  static contextType = LanguageContext;
   constructor() {
     super();
     this.state = {
@@ -17,17 +19,17 @@ class About extends React.Component {
     });
   }
   render() {
+    const { t } = this.context;
     const one = (
       <p>
-        Je suis un étudiant en 2ème année de <b>BTS SIO (OPTION SLAM)</b> basé à
-        Nancy, France. Je suis actuellement à la recherche d'une <b style={{ color: "var(--green-bright)" }}>alternance en développement</b> pour poursuivre mes études après le BTS,
-        où je pourrai perfectionner mes compétences, contribuer à de vrais projets, et grandir en tant que <b style={{ color: "var(--green-bright)" }}>développeur</b>.
+        {t("about.p1.1")}<b>{t("about.p1.bold1")}</b>
+        {t("about.p1.2")}<b style={{ color: "var(--green-bright)" }}>{t("about.p1.bold2")}</b>
+        {t("about.p1.3")}<b style={{ color: "var(--green-bright)" }}>{t("about.p1.bold3")}</b>
       </p>
     );
     const two = (
       <p>
-        En dehors de mes études, j'ai un fort intérêt pour l'innovation et l'astronomie.
-        J'aime aussi jouer aux jeux vidéo et regarder des films.
+        {t("about.p2")}
       </p>
     );
 
@@ -42,12 +44,12 @@ class About extends React.Component {
       <div id="about">
         <FadeInSection>
           <div className="section-header ">
-            <span className="section-title">/ presentation</span>
+            <span className="section-title">{t("about.title")}</span>
           </div>
           <div className="about-content">
             <div className="about-description">
               {[one]}
-              {"Quelques technologies avec lesquelles j'ai travaillé :"}
+              {t("about.tech")}
               <ul className="tech-stack">
                 {tech_stack.map(function (tech_item, i) {
                   return (
@@ -62,7 +64,7 @@ class About extends React.Component {
               <div className="cv-button-container" style={{ marginTop: "40px", display: "flex", justifyContent: "flex-start" }}>
                 <a href="/assets/CV_Kamdine_HASSANZADEH.pdf" download="CV_Kamdine_HASSANZADEH.pdf" style={{ textDecoration: "none" }}>
                   <button className="star-button">
-                    Mon CV
+                    {t("about.cv")}
                     {[1, 2, 3, 4, 5, 6].map((starNum) => (
                       <div className={`star-${starNum}`} key={starNum}>
                         <svg

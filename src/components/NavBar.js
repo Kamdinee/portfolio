@@ -5,10 +5,11 @@ import Navbar from "react-bootstrap/Navbar";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import FractalTree from "./FractalTree";
+import { LanguageContext } from "../LanguageContext";
 import "../styles/NavBar.css";
 
 class NavBar extends React.Component {
+  static contextType = LanguageContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -49,18 +50,19 @@ class NavBar extends React.Component {
 
   render() {
     const { activeLink } = this.state;
+    const { t } = this.context;
 
     return (
       <Navbar className="bg-body-tertiary vertical-navbar">
         <Container className="flex-column navbar-container">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="w-100 flex-column justify-content-start">
-            <FractalTree />
-            <div className="navbar-logo" style={{ marginBottom: "2.5rem", marginTop: "-5px", textAlign: "center" }}>
+          <Navbar.Collapse id="basic-navbar-nav" className="w-100 flex-column justify-content-center">
+            <div className="navbar-logo" style={{ marginBottom: "1rem", marginTop: "-5px", textAlign: "center" }}>
               <a href="#intro" className="logo-text">
                 kam
               </a>
             </div>
+            
             <div className="navbar-socials">
               <Nav.Link href="mailto:kamdine.hzd@outlook.com">
                 <EmailRoundedIcon style={{ fontSize: 20 }}></EmailRoundedIcon>
@@ -73,12 +75,12 @@ class NavBar extends React.Component {
               </Nav.Link>
             </div>
             <Nav className="flex-column w-100 nav-links-container">
-              <Nav.Link href="#about" className={activeLink === "#about" ? "active-link" : ""}>Présentation</Nav.Link>
-              <Nav.Link href="#degrees" className={activeLink === "#degrees" ? "active-link" : ""}>Formations</Nav.Link>
-              <Nav.Link href="#experience" className={activeLink === "#experience" ? "active-link" : ""}>Expériences</Nav.Link>
-              <Nav.Link href="#projects" className={activeLink === "#projects" ? "active-link" : ""}>Projets</Nav.Link>
-              <Nav.Link href="#veilles" className={activeLink === "#veilles" ? "active-link" : ""}>Veilles</Nav.Link>
-              <Nav.Link href="#epreuve-e5" className={activeLink === "#epreuve-e5" ? "active-link" : ""}>Épreuve E5</Nav.Link>
+              <Nav.Link href="#about" className={activeLink === "#about" ? "active-link" : ""}>{t("nav.about")}</Nav.Link>
+              <Nav.Link href="#degrees" className={activeLink === "#degrees" ? "active-link" : ""}>{t("nav.degrees")}</Nav.Link>
+              <Nav.Link href="#experience" className={activeLink === "#experience" ? "active-link" : ""}>{t("nav.experience")}</Nav.Link>
+              <Nav.Link href="#projects" className={activeLink === "#projects" ? "active-link" : ""}>{t("nav.projects")}</Nav.Link>
+              <Nav.Link href="#veilles" className={activeLink === "#veilles" ? "active-link" : ""}>{t("nav.veilles")}</Nav.Link>
+              <Nav.Link href="#epreuve-e5" className={activeLink === "#epreuve-e5" ? "active-link" : ""}>{t("nav.epreuve")}</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <div className="navbar-footer">

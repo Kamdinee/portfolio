@@ -21,16 +21,17 @@
   display: flex;
   flex-direction: column;
   /* align-items: flex-start; */
-  position: relative;
   height: 100%;
-  padding: 2rem 1.75rem;
-  background-color: var(--light-navy);
+  padding: 2.2rem 2rem;
+  background-color: var(--card-bg);
   border-radius: 16px;
+  box-shadow: 0 8px 30px var(--card-shadow);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .projects-card:hover {
   transform: translateY(-7px);
-  background-color: var(--lightest-navy);
+  background-color: var(--card-bg-hover);
 }
 
 .card-header {
@@ -40,6 +41,7 @@
   flex-direction: row;
   justify-content: space-between;
   border-bottom: none !important;
+  background-color: transparent !important;
 }
 
 .folder-icon {
@@ -59,23 +61,25 @@
 }
 
 .card-title {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-title);
   color: var(--lightest-slate);
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 600;
 }
 
 .card-desc {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-main);
   color: var(--slate);
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 1.6;
   padding-bottom: 40px;
 }
 
 .card-tech {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-main);
+  font-weight: 600;
   color: var(--slate);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* Spotlight carousel */

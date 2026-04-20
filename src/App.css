@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Manrope:wght@300;400;600;700&family=Noto+Serif+Display:wght@400;600&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -20,7 +20,7 @@ html {
 }
 
 .App {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-main);
   background-color: var(--navy);
   display: flex;
   margin: auto;
@@ -114,10 +114,10 @@ a {
 }
 
 .section-title {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-title);
   color: var(--lightest-slate);
-  font-size: 43px;
-  font-weight: bold;
+  font-size: 46px;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 600px) {
