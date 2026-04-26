@@ -70,6 +70,7 @@ export const LanguageProvider = ({ children }) => {
       "proj.wp.desc": "Development of a portfolio via the WordPress CMS in order to discover its features and ecosystem.",
       "proj.vr.desc": "Discovery of virtual reality immersion, structured around choosing an avatar and exploring an interactive world developed for this project.",
       "proj.veilleinfo.desc": "Implementation of a technology watch methodology. I am also currently working on an n8n workflow to automate the task with AI.",
+      "proj.tp.desc": "Completion of various practical exercises on Packet Tracer, bash scripting, rights management, IP addressing plans, and SSH.",
       
       "veille.title": "/ technology watch",
       "veille.q1": "What is technology watch?",
@@ -168,6 +169,7 @@ export const LanguageProvider = ({ children }) => {
       "proj.wp.desc": "Développement d'un portfolio via le CMS WordPress dans le but d'en découvrir les fonctionnalités et l'écosystème.",
       "proj.vr.desc": "Découverte de l'immersion en réalité virtuelle, structurée autour du choix d'un avatar et de l'exploration d'un monde interactif développé pour ce projet.",
       "proj.veilleinfo.desc": "Mise en place d'une méthodologie de veille technologique. Je travaille également sur un workflow n8n pour automatiser cette tâche à l'aide de l'IA.",
+      "proj.tp.desc": "Réalisation de différent TP sur Packet Tracer, le scripting bash, gestion des droits, plan d'adressage IP et SSH.",
 
       "veille.title": "/ veilles",
       "veille.q1": "Qu'est-ce que la veille technologique ?",

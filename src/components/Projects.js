@@ -95,6 +95,13 @@ class Projects extends React.Component {
         link: "",
         open: "",
         doc: "/assets/CR - Méthodologie de veille Informationnelle.pdf"
+      },
+      "TP Réseau": {
+        desc: t("proj.tp.desc"),
+        techStack: "Packet Tracer, Bash, SSH",
+        link: "",
+        open: "",
+        doc: "/assets/Compétences réseau.pdf"
       }
     };
 
