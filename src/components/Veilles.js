@@ -46,7 +46,7 @@ class Veilles extends React.Component {
                   <b style={{ color: "var(--lightest-slate)", fontSize: "16px" }}>Feedly</b>
                 </li>
                 <li style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px", padding: "10px" }}>
-                  <img src="/assets/notion.png" alt="Notion" style={{ width: "55px", height: "55px", objectFit: "contain", borderRadius: "8px" }} />
+                  <img src="/assets/Notion_app_logo.png" alt="Notion" style={{ width: "55px", height: "55px", objectFit: "contain", borderRadius: "8px" }} />
                   <b style={{ color: "var(--lightest-slate)", fontSize: "16px" }}>Notion</b>
                 </li>
                 <li style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px", padding: "10px" }}>

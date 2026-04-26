@@ -97,19 +97,20 @@
   to { transform: scale(1); opacity: 1; }
 }
 
-.custom-modal-content img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: contain;
-  border-radius: 0;
-  box-shadow: none;
+.custom-modal-content iframe.pdf-viewer {
+  width: 90vw;
+  height: 90vh;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
 }
 
 .custom-modal-close {
-  position: absolute;
-  top: -40px;
-  right: 0px;
-  color: var(--lightest-slate);
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  color: rgba(255, 255, 255, 0.5); /* très discret */
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
