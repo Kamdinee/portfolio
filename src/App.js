@@ -6,8 +6,10 @@ import Degrees from "./components/Degrees";
 import Projects from "./components/Projects";
 import Veilles from "./components/Veilles";
 import EpreuveE5 from "./components/EpreuveE5";
+import Contact from "./components/Contact";
 import NavBar from "./components/NavBar";
 import TopBar from "./components/TopBar";
+import Ambient from "./components/Ambient";
 import { LanguageProvider } from "./LanguageContext";
 import "./App.css";
 import "./styles/Global.css";
@@ -17,17 +19,19 @@ function App() {
   return (
     <LanguageProvider>
       <div className="App">
+        <Ambient />
         <TopBar />
-        <NavBar></NavBar>
-        <div id="content">
-          <Intro></Intro>
-          <About></About>
-          <Degrees></Degrees>
-          <Experience></Experience>
-          <Projects></Projects>
-          <Veilles></Veilles>
-          <EpreuveE5></EpreuveE5>
-        </div>
+        <NavBar />
+        <main id="content">
+          <Intro />
+          <About />
+          <Degrees />
+          <Experience />
+          <Projects />
+          <Veilles />
+          <EpreuveE5 />
+          <Contact />
+        </main>
       </div>
     </LanguageProvider>
   );

@@ -1,22 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Manrope:wght@300;400;600;700&family=Noto+Serif+Display:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+Display:wght@400;600&display=swap");
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 24px;
 }
 
-/* Animation */
+body {
+  background-color: var(--navy);
+  transition: background-color 0.3s ease;
+}
 
+/* ===== Animation d'apparition ===== */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(10vh);
+  transform: translateY(40px);
   visibility: hidden;
-  transition: opacity 0.6s ease-out, transform 1s ease-out;
-  will-change: opacity, visibility;
+  transition: opacity 0.7s ease-out, transform 0.9s var(--ease);
+  will-change: opacity, transform;
 }
 .fade-in-section.is-visible {
   opacity: 1;
   transform: none;
   visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-in-section {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .App {
@@ -26,28 +49,37 @@ html {
   margin: auto;
   min-height: 100vh;
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 a {
   text-decoration: none !important;
   color: var(--green-bright) !important;
 }
 
+:focus-visible {
+  outline: 2px dashed var(--green-bright);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--green-tint-strong);
+  color: var(--lightest-slate);
+}
+
+/* ===== Mise en page ===== */
 #content {
-  margin-left: 250px;
-  width: calc(100vw - 250px);
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
   overflow-x: hidden;
-  overflow-y: hidden;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 #content > div,
 #content > section {
-  padding: 80px 10%;
-  min-height: 100vh;
+  padding: 110px 8%;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -64,53 +96,27 @@ a {
   width: 100%;
 }
 
-#content > :nth-child(even),
-#content > :nth-child(odd) {
-  background-color: var(--navy);
-}
-
-/* Removed section divider */
-/* Specific adjustment for intro so it doesn't add to existing padding too much */
-#intro {
+#content > #intro {
+  min-height: 100vh;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
 
-.rs-steps-horizontal .rs-steps-item-content {
-  text-align: left;
-}
-
-::selection {
-  background: var(--lightest-navy); /* WebKit/Blink Browsers */
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-}
-
+/* ===== En-têtes de section ===== */
 .section-header {
   display: flex;
-  padding-bottom: 42px;
+  align-items: center;
+  padding-bottom: 48px;
   width: 100%;
 }
 
 .section-header::after {
   content: "";
   display: block;
-  width: 300px;
-  margin-top: 39px;
+  flex: 0 1 300px;
   height: 1px;
-  margin-left: 20px;
-  background-color: var(--lightest-navy);
+  margin-left: 24px;
+  background: linear-gradient(90deg, var(--lightest-navy), transparent);
 }
 
 .section-title {
@@ -118,29 +124,146 @@ a {
   color: var(--lightest-slate);
   font-size: 46px;
   font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.section-slash {
+  color: var(--green-bright);
+  font-weight: 400;
+}
+
+/* ===== Éléments réutilisables ===== */
+.chip-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1;
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: var(--green-bright);
+  background: var(--green-tint);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.chip:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  border: 1px solid var(--green-bright);
+}
+
+.cta-primary {
+  background: var(--green-bright);
+  color: var(--on-accent) !important;
+}
+
+.cta-primary:hover {
+  box-shadow: 0 0 0 4px var(--green-tint), 0 10px 30px -10px var(--green-tint-strong);
+  transform: translateY(-2px);
+}
+
+.cta-ghost {
+  background: transparent;
+  color: var(--green-bright) !important;
+}
+
+.cta-ghost:hover {
+  background: var(--green-tint);
+  transform: translateY(-2px);
+}
+
+/* ===== Ambiance : progression + halo ===== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 2000;
+  background: var(--green-bright);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  box-shadow: 0 0 10px var(--green-tint-strong);
+}
+
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  background: radial-gradient(
+    600px circle at var(--x, 50%) var(--y, 50%),
+    var(--glow-color),
+    transparent 70%
+  );
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .cursor-glow {
+    display: none;
+  }
+}
+
+/* ===== Responsive ===== */
+@media only screen and (max-width: 991px) {
+  #content {
+    margin-left: 0;
+    width: 100%;
+    padding-top: 64px;
+  }
+
+  #content > div,
+  #content > section {
+    padding: 80px 6%;
+    min-height: unset;
+  }
+
+  #content > #intro {
+    min-height: calc(100vh - 64px);
+  }
 }
 
 @media only screen and (max-width: 600px) {
-  .App {
-    flex-direction: column;
-    padding: 40px 24px;
-  }
-
-  #content {
-    padding: 10px 10px;
-    width: 100%;
-    margin-left: 0;
+  #content > div,
+  #content > section {
+    padding: 64px 22px;
   }
 
   .section-header {
-    width: unset;
+    padding-bottom: 32px;
   }
 
   .section-header::after {
-    display: none;
+    flex-basis: 80px;
   }
 
   .section-title {
-    font-size: 29px;
+    font-size: 30px;
   }
 }

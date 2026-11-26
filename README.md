@@ -2,7 +2,7 @@
 
 # Portfolio
 
-Welcome to my portfolio!
+Portfolio de **Kamdine Hassanzadeh** — étudiant en BUT3 Informatique (parcours DWM) à l'IUT Nancy-Charlemagne.
 
 </div>
 
@@ -12,13 +12,13 @@ Welcome to my portfolio!
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/your-username/your-repo.git
+    git clone https://github.com/Kamdinee/portfolio.git
     cd portfolio
     ```
 
 2.  Install dependencies
     ```bash
-    npm install
+    npm install --legacy-peer-deps
     ```
 
 3.  Start the project:

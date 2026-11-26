@@ -5,6 +5,27 @@
   justify-content: center;
   text-align: center;
   min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Grille de fond discrète, fondue sur les bords */
+.intro-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  max-width: none !important;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 30%, transparent 75%);
+}
+
+.intro-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Typist {
@@ -13,6 +34,7 @@
   font-size: 50px;
   margin-top: -30px;
 }
+
 .Typist .Cursor--blinking {
   color: var(--green-bright);
   padding-left: 4px;
@@ -20,102 +42,166 @@
 
 .intro-title {
   font-family: var(--font-title);
-  font-size: 55px;
+  font-size: 58px;
   font-weight: 400;
+  letter-spacing: -0.02em;
 }
+
 .intro-name {
   font-family: var(--font-title);
   color: var(--green-bright);
-  font-weight: bold;
-  font-size: 50px;
+  font-weight: 700;
+  font-size: inherit;
+  text-shadow: 0 0 40px var(--green-tint-strong);
 }
 
 .intro-subtitle {
-  margin-top: -15px;
+  margin-top: 6px;
   font-family: var(--font-main);
   color: var(--slate);
-  text-align: center;
   font-weight: 300;
-  font-size: 38px;
+  font-size: 36px;
+  letter-spacing: -0.01em;
 }
 
 .intro-desc {
   color: var(--slate);
   font-family: var(--font-main);
-  font-size: 20px;
-  line-height: 1.6;
-  text-align: center;
-  max-width: 750px;
-  margin: 30px auto 0 auto;
-  padding-bottom: 50px;
+  font-size: 19px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 26px auto 0;
+}
+
+.intro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--light-slate);
+}
+
+.pulse-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green-bright);
+}
+
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--green-bright);
+  animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.intro-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+/* Indicateur de scroll */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px !important;
+  height: 38px;
+  border: 2px solid var(--slate);
+  border-radius: 14px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.scroll-hint:hover {
+  opacity: 1;
+  border-color: var(--green-bright);
+}
+
+.scroll-hint span {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 4px;
+  height: 7px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: var(--green-bright);
+  animation: scroll-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll-dot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
 }
 
 b {
-  font-size: 17px;
+  font-size: inherit;
+}
+
+@media only screen and (max-width: 991px) {
+  .scroll-hint {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 600px) {
   #intro {
-    min-height: unset;
-    padding-left: unset;
-    padding-top: unset;
-    margin: 0;
-    align-items: center;
-  }
-
-  .intro-title {
-    font-size: 46px;
-  }
-  .intro-name {
-    font-size: 46px;
+    padding-top: 30px !important;
+    padding-bottom: 40px !important;
   }
 
   .Typist {
     font-size: 36px;
   }
 
+  .intro-title {
+    font-size: 40px;
+  }
+
   .intro-subtitle {
-    margin: 0;
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .intro-desc {
-    font-size: 18px;
-    max-width: unset;
-    padding-bottom: 40px;
+    font-size: 17px;
   }
 
-  .intro-contact {
-    font-size: 16px;
+  .intro-badge {
+    font-size: 11.5px;
   }
 }
-
-/* --- Styles pour l'animation Flowers (Horloge) --- */
-
-.flowers-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 300px; /* Taille raisonnable pour l'horloge */
-  margin-bottom: 20px;
-  transform: scale(0.4); /* Réduction de la taille de l'horloge */
-}
-
-.flowers {
-  position: relative;
-  transform: scale(0.9);
-}
-
-.flower {
-  position: absolute;
-  bottom: 10vmin;
-  transform-origin: bottom center;
-  z-index: 10;
-
-  --fl-speed: 0.8s;
-}
-
-/* Le reste du CSS de l'horloge (Flowers) est trop long pour être inclus ici. 
-   Je vais l'ajouter dans un fichier séparé pour ne pas surcharger Intro.css. */

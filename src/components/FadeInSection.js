@@ -1,36 +1,42 @@
 import React from "react";
 
-export default function FadeInSection(props) {
+/* Fait apparaître son contenu en fondu quand il entre dans l'écran (une seule fois). */
+export default function FadeInSection({ as: Tag = "div", className = "", delay, children }) {
   const [isVisible, setVisible] = React.useState(false);
   const domRef = React.useRef();
+
   React.useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setVisible(entry.isIntersecting);
-        }
-      });
-    });
-    
-    // On sauvegarde la référence actuelle dans une constante pour le nettoyage
-    const currentRef = domRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
+    const node = domRef.current;
+    if (!node) return undefined;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return undefined;
     }
-    
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px" }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
   }, []);
+
   return (
-    <div
-      className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
-      style={{ transitionDelay: `${props.delay}` }}
+    <Tag
+      className={`fade-in-section ${isVisible ? "is-visible" : ""} ${className}`.trim()}
+      style={delay ? { transitionDelay: delay } : undefined}
       ref={domRef}
     >
-      {props.children}
-    </div>
+      {children}
+    </Tag>
   );
 }

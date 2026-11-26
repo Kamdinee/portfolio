@@ -5,18 +5,13 @@ import '../styles/TopBar.css';
 
 const TopBar = () => {
   const { lang, toggleLang } = useContext(LanguageContext);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(
+    () => document.documentElement.getAttribute("data-theme") !== "light"
+  );
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      setIsDark(false);
-      document.documentElement.setAttribute("data-theme", "light");
-    } else {
-      setIsDark(true);
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
-  }, []);
+    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   const toggleTheme = () => {
     if (isDark) {
@@ -32,12 +27,22 @@ const TopBar = () => {
 
   return (
     <div className="topbar-container">
-      <button className="minimal-btn" onClick={toggleLang}>
+      <button
+        className="minimal-btn"
+        onClick={toggleLang}
+        aria-label={lang === 'en' ? 'Passer en français' : 'Switch to English'}
+        title={lang === 'en' ? 'Passer en français' : 'Switch to English'}
+      >
         {lang === 'en' ? 'EN' : 'FR'}
       </button>
       <span className="separator">/</span>
-      <button className="minimal-btn theme-btn" onClick={toggleTheme}>
-        {isDark ? <Sun size={20} /> : <Moon size={20} />}
+      <button
+        className="minimal-btn theme-btn"
+        onClick={toggleTheme}
+        aria-label={isDark ? 'Light theme' : 'Dark theme'}
+        title={isDark ? 'Light theme' : 'Dark theme'}
+      >
+        {isDark ? <Sun size={18} /> : <Moon size={18} />}
       </button>
     </div>
   );
