@@ -1,93 +1,182 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import { Sun, Moon } from "lucide-react";
 import { LanguageContext } from "../LanguageContext";
 import "../styles/NavBar.css";
 
+const SECTIONS = [
+  { id: "about", key: "nav.about" },
+  { id: "degrees", key: "nav.degrees" },
+  { id: "experience", key: "nav.experience" },
+  { id: "projects", key: "nav.projects" },
+  { id: "contact", key: "nav.contact" },
+];
+
+const SOCIALS = [
+  { href: "mailto:kamdine.hzd@outlook.com", label: "E-mail", icon: <EmailRoundedIcon style={{ fontSize: 20 }} /> },
+  { href: "https://github.com/Kamdinee", label: "GitHub", icon: <GitHubIcon style={{ fontSize: 19 }} /> },
+  { href: "https://www.linkedin.com/in/kamdine/", label: "LinkedIn", icon: <LinkedInIcon style={{ fontSize: 21 }} /> },
+];
+
 class NavBar extends React.Component {
   static contextType = LanguageContext;
+
   constructor(props) {
     super(props);
     this.state = {
-      activeLink: ""
+      activeLink: "",
+      open: false,
+      scrolled: false,
+      hidden: false,
+      isDark: document.documentElement.getAttribute("data-theme") !== "light",
     };
-    this.handleScroll = this.handleScroll.bind(this);
+    this.lastY = 0;
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
-    this.handleScroll(); // Set initial state
+    window.addEventListener("scroll", this.handleScroll, { passive: true });
+    window.addEventListener("keydown", this.handleKey);
+    this.handleScroll();
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("keydown", this.handleKey);
+    document.body.classList.remove("menu-open");
   }
 
-  handleScroll() {
-    const sections = ["about", "degrees", "experience", "projects", "veilles", "epreuve-e5"];
-    let current = "";
+  handleKey = (e) => {
+    if (e.key === "Escape" && this.state.open) this.setOpen(false);
+  };
 
-    for (const section of sections) {
-      const element = document.getElementById(section);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        // Trigger active if the element crosses the middle of the screen
-        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-          current = "#" + section;
-          break;
-        }
+  setOpen = (open) => {
+    this.setState({ open });
+    document.body.classList.toggle("menu-open", open);
+  };
+
+  toggleTheme = () => {
+    const isDark = !this.state.isDark;
+    const theme = isDark ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (e) {
+      /* ignore */
+    }
+    this.setState({ isDark });
+  };
+
+  handleScroll = () => {
+    const y = window.scrollY;
+    // La barre se cache quand on descend et réapparaît quand on remonte
+    const hidden = y > 120 && y > this.lastY && !this.state.open;
+    this.lastY = y;
+
+    let current = "";
+    for (const { id } of SECTIONS) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+        current = id;
+        break;
       }
     }
 
-    if (current !== this.state.activeLink) {
-      this.setState({ activeLink: current });
+    const scrolled = y > 10;
+    if (
+      current !== this.state.activeLink ||
+      scrolled !== this.state.scrolled ||
+      hidden !== this.state.hidden
+    ) {
+      this.setState({ activeLink: current, scrolled, hidden });
     }
-  }
+  };
 
   render() {
-    const { activeLink } = this.state;
-    const { t } = this.context;
+    const { activeLink, open, scrolled, hidden, isDark } = this.state;
+    const { t, lang, toggleLang } = this.context;
 
     return (
-      <Navbar className="bg-body-tertiary vertical-navbar">
-        <Container className="flex-column navbar-container">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="w-100 flex-column justify-content-center">
-            <div className="navbar-logo" style={{ marginBottom: "1rem", marginTop: "-5px", textAlign: "center" }}>
-              <a href="#intro" className="logo-text">
-                kam
-              </a>
+      <header
+        className={`top-nav ${scrolled ? "is-scrolled" : ""} ${hidden ? "is-hidden" : ""} ${
+          open ? "is-open" : ""
+        }`}
+      >
+        <div className="top-nav-inner">
+          <a href="#intro" className="nav-brand" onClick={() => this.setOpen(false)}>
+            Kam
+          </a>
+
+          <nav id="nav-menu" className="nav-menu" aria-label="Navigation principale">
+            <ul className="nav-links">
+              {SECTIONS.map(({ id, key }, i) => (
+                <li key={id}>
+                  <a
+                    href={`#${id}`}
+                    className={`nav-link ${activeLink === id ? "active-link" : ""}`}
+                    aria-current={activeLink === id ? "true" : undefined}
+                    onClick={() => this.setOpen(false)}
+                  >
+                    <span className="nav-index">{String(i + 1).padStart(2, "0")}.</span>
+                    {t(key)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <div className="nav-right">
+              <div className="nav-socials">
+                {SOCIALS.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    aria-label={s.label}
+                    title={s.label}
+                    target={s.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                  >
+                    {s.icon}
+                  </a>
+                ))}
+              </div>
+              <span className="nav-divider" aria-hidden="true" />
+              <div className="nav-toggles">
+                <button
+                  className="minimal-btn"
+                  onClick={toggleLang}
+                  aria-label={lang === "en" ? "Passer en français" : "Switch to English"}
+                  title={lang === "en" ? "Passer en français" : "Switch to English"}
+                >
+                  {lang === "en" ? "EN" : "FR"}
+                </button>
+                <button
+                  className="minimal-btn theme-btn"
+                  onClick={this.toggleTheme}
+                  aria-label={isDark ? "Light theme" : "Dark theme"}
+                  title={isDark ? "Light theme" : "Dark theme"}
+                >
+                  {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                </button>
+              </div>
             </div>
-            
-            <div className="navbar-socials">
-              <Nav.Link href="mailto:kamdine.hzd@outlook.com">
-                <EmailRoundedIcon style={{ fontSize: 20 }}></EmailRoundedIcon>
-              </Nav.Link>
-              <Nav.Link href="https://github.com/Kamdinee" target="_blank">
-                <GitHubIcon style={{ fontSize: 19 }}></GitHubIcon>
-              </Nav.Link>
-              <Nav.Link href="https://www.linkedin.com/in/kamdine/" target="_blank">
-                <LinkedInIcon style={{ fontSize: 21 }}></LinkedInIcon>
-              </Nav.Link>
-            </div>
-            <Nav className="flex-column w-100 nav-links-container">
-              <Nav.Link href="#about" className={activeLink === "#about" ? "active-link" : ""}>{t("nav.about")}</Nav.Link>
-              <Nav.Link href="#degrees" className={activeLink === "#degrees" ? "active-link" : ""}>{t("nav.degrees")}</Nav.Link>
-              <Nav.Link href="#experience" className={activeLink === "#experience" ? "active-link" : ""}>{t("nav.experience")}</Nav.Link>
-              <Nav.Link href="#projects" className={activeLink === "#projects" ? "active-link" : ""}>{t("nav.projects")}</Nav.Link>
-              <Nav.Link href="#veilles" className={activeLink === "#veilles" ? "active-link" : ""}>{t("nav.veilles")}</Nav.Link>
-              <Nav.Link href="#epreuve-e5" className={activeLink === "#epreuve-e5" ? "active-link" : ""}>{t("nav.epreuve")}</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-          <div className="navbar-footer">
-            Copyright 2026 &copy; Kamdine
-          </div>
-        </Container>
-      </Navbar>
+          </nav>
+
+          <button
+            className={`burger ${open ? "is-open" : ""}`}
+            onClick={() => this.setOpen(!open)}
+            aria-label={open ? t("nav.close") : t("nav.menu")}
+            aria-expanded={open}
+            aria-controls="nav-menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </header>
     );
   }
 }

@@ -1,119 +1,88 @@
 import React, { useContext } from "react";
 import FadeInSection from "./FadeInSection";
+import SectionHeader from "./SectionHeader";
 import { GraduationCap, MapPin, Calendar } from "lucide-react";
 import { LanguageContext } from "../LanguageContext";
 
 import "../styles/Degrees.css";
 
+const DEGREES = [
+  {
+    id: "iut",
+    logo: "/assets/logoiut.png",
+    logoAlt: "IUT Nancy-Charlemagne",
+    logoContain: true,
+    place: "IUT Nancy-Charlemagne — Nancy, France",
+    current: true,
+  },
+  {
+    id: "chopin",
+    logo: "/assets/logochopin.jpeg",
+    logoAlt: "Lycée Frédéric Chopin",
+    place: "Lycée Frédéric Chopin — Nancy, France",
+  },
+  {
+    id: "idmc",
+    logo: "/assets/logoidmc.jpg",
+    logoAlt: "IDMC",
+    place: "Institut des Sciences du Digital (IDMC) — Nancy, France",
+  },
+  {
+    id: "bac",
+    place: "Lycée Jacques Callot — Nancy, France",
+  },
+];
+
 export default function Degrees() {
   const { t } = useContext(LanguageContext);
-  
+
   return (
     <section id="degrees">
       <FadeInSection>
-        <h2 className="degrees-title">
-          {t("degrees.title")}
-          <span className="degrees-line"></span>
-        </h2>
+        <SectionHeader title={t("degrees.title")} />
 
-        {/* ========== 1 • CHOPIN ========== */}
-        <div className="degree-row">
-          <div className="degree-icon-box">
-            {/* tu peux garder /assets, ça marche très bien */}
-            <img
-              src="/assets/logochopin.jpeg"
-              alt="Chopin Logo"
-              className="degree-img"
-            />
-          </div>
+        <ol className="degrees-list">
+          {DEGREES.map((d, i) => (
+            <FadeInSection
+              as="li"
+              delay={`${i * 120}ms`}
+              key={d.id}
+              className={`degree-row ${d.current ? "is-current" : ""}`}
+            >
+                <div className={`degree-icon-box ${d.logoContain ? "is-contain" : ""}`}>
+                  {d.logo ? (
+                    <img src={d.logo} alt={d.logoAlt} className="degree-img" loading="lazy" />
+                  ) : (
+                    <GraduationCap className="degree-bac-icon" aria-hidden="true" />
+                  )}
+                </div>
 
-          <div className="degree-content">
-            <h3 className="degree-name">
-              <GraduationCap className="degree-title-icon" />
-              {t("deg.chopin.title")}
-            </h3>
+                <div className="degree-content">
+                  <div className="degree-head">
+                    <h3 className="degree-name">{t(`deg.${d.id}.title`)}</h3>
+                    <span className={`degree-status ${d.current ? "is-current" : ""}`}>
+                      {d.current && <span className="pulse-dot" aria-hidden="true" />}
+                      {t(`deg.${d.id}.status`)}
+                    </span>
+                  </div>
 
-            <p className="degree-field">
-              {t("deg.chopin.desc")}
-            </p>
+                  <p className="degree-field">{t(`deg.${d.id}.desc`)}</p>
 
-            <div className="degree-sub">
-              <MapPin className="sub-icon" />
-              Lycée Frédéric Chopin — Nancy, France
-            </div>
-
-            <div className="degree-sub">
-              <Calendar className="sub-icon" />
-              {t("deg.chopin.date")}
-            </div>
-          </div>
-        </div>
-
-        <div className="degree-divider" />
-
-        {/* ========== 2 • IDMC ========== */}
-        <div className="degree-row">
-          <div className="degree-icon-box">
-            <img
-              src="/assets/logoidmc.jpg"
-              alt="IDMC Logo"
-              className="degree-img"
-            />
-          </div>
-
-          <div className="degree-content">
-            <h3 className="degree-name">
-              <GraduationCap className="degree-title-icon" />
-              {t("deg.idmc.title")}
-            </h3>
-
-            <p className="degree-field">
-              {t("deg.idmc.desc")}
-            </p>
-
-            <div className="degree-sub">
-              <MapPin className="sub-icon" />
-              Institut des Sciences du Digital (IDMC) — Nancy, France
-            </div>
-
-            <div className="degree-sub">
-              <Calendar className="sub-icon" />
-              {t("deg.idmc.date")}
-            </div>
-          </div>
-        </div>
-
-        <div className="degree-divider" />
-
-        {/* ========== 3 • BAC ========== */}
-        <div className="degree-row">
-          <div className="degree-icon-box">
-            <GraduationCap className="degree-bac-icon" />
-          </div>
-
-          <div className="degree-content">
-            <h3 className="degree-name">
-              <GraduationCap className="degree-title-icon" />
-              {t("deg.bac.title")}
-            </h3>
-
-            <p className="degree-field">
-              {t("deg.bac.desc")}
-            </p>
-
-            <div className="degree-sub">
-              <MapPin className="sub-icon" />
-              Lycée Jacques Callot — Nancy, France
-            </div>
-
-            <div className="degree-sub">
-              <Calendar className="sub-icon" />
-              {t("deg.bac.date")}
-            </div>
-          </div>
-        </div>
+                  <div className="degree-meta">
+                    <span className="degree-sub">
+                      <MapPin className="sub-icon" aria-hidden="true" />
+                      {d.place}
+                    </span>
+                    <span className="degree-sub">
+                      <Calendar className="sub-icon" aria-hidden="true" />
+                      {t(`deg.${d.id}.date`)}
+                    </span>
+                  </div>
+                </div>
+            </FadeInSection>
+          ))}
+        </ol>
       </FadeInSection>
     </section>
   );
 }
-    

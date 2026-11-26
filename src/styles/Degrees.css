@@ -1,113 +1,182 @@
-/* === SECTION : même largeur que #about et #experience === */
 #degrees {
   min-height: 50vh;
-  padding-top: 100px;
 }
 
-/* === TITRE "Degrees" + trait à droite (comme About) === */
-.degrees-title {
-  font-family: "Inter", sans-serif;
-  font-size: 43px;
-  font-weight: bold;
-  color: var(--lightest-slate);
+/* Liste en frise chronologique */
+.degrees-list {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 40px;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.degrees-line {
-  flex: 0.33;
-  height: 1px;
-  background-color: var(--lightest-navy);
+.degrees-list::before {
+  content: "";
+  position: absolute;
+  left: 47px;
+  top: 30px;
+  bottom: 30px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--green-bright), var(--lightest-navy) 35%, transparent);
+  opacity: 0.6;
 }
 
-/* === UNE LIGNE DE DIPLÔME === */
 .degree-row {
+  position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 24px;
-  padding: 24px 0;
+  gap: 28px;
+  padding: 22px 24px 22px 0;
+  border-radius: var(--radius);
+  transition: background-color 0.3s ease;
 }
 
-/* === CARRÉ À GAUCHE (LOGO / BAC) === */
+.degree-row:hover {
+  background-color: var(--green-tint);
+}
+
+/* Logo */
 .degree-icon-box {
-  width: 130px;
-  height: 130px;
-  background-color: var(--light-navy);
-  border-radius: 14px;
+  position: relative;
+  z-index: 1;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
+  border-radius: 18px;
+  background-color: var(--light-navy);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px -15px var(--card-shadow);
+}
+
+.degree-icon-box.is-contain {
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.degree-row.is-current .degree-icon-box {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 0 4px var(--green-tint), 0 10px 30px -15px var(--card-shadow);
 }
 
 .degree-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
 }
 
-/* icône bac */
+.is-contain .degree-img {
+  object-fit: contain;
+}
+
 .degree-bac-icon {
-  width: 64px;
-  height: 64px;
+  width: 44px;
+  height: 44px;
   color: var(--green-bright);
 }
 
-/* === CONTENU TEXTE À DROITE === */
+/* Texte */
 .degree-content {
   flex: 1;
-  font-family: "Inter", sans-serif;
+  min-width: 0;
+  font-family: var(--font-main);
 }
 
-/* titre du diplôme */
-.degree-name {
+.degree-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 8px 14px;
+  margin-bottom: 6px;
+}
+
+.degree-name {
+  font-family: var(--font-title);
   font-size: 22px;
   font-weight: 600;
+  line-height: 1.3;
   color: var(--lightest-slate);
-  margin-bottom: 8px;
+  margin: 0;
 }
 
-.degree-title-icon {
-  width: 20px;
-  height: 20px;
-  color: var(--green-bright);
-  margin-right: 10px;
-}
-
-/* === LIGNE "Computer Services..." === */
-/* on la décale un peu pour l’aligner avec les lignes location + calendrier */
-.degree-field {
-  font-size: 16px;
-  color: var(--light-slate);
-  margin-bottom: 10px;
-  margin-left: 28px; /* décalage demandé */
-}
-
-/* === LIGNES AVEC LOCATION + CALENDRIER === */
-.degree-sub {
-  display: flex;
+.degree-status {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 6px;
-  margin-left: 28px; /* même décalage que la ligne du dessus */
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--light-slate);
+  border: 1px solid var(--border);
+}
+
+.degree-status.is-current {
+  color: var(--green-bright);
+  background: var(--green-tint);
+  border-color: transparent;
+}
+
+.degree-field {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--slate);
+  margin: 0 0 12px;
+}
+
+.degree-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+}
+
+.degree-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
   color: var(--light-slate);
 }
 
 .sub-icon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   color: var(--green-bright);
+  flex-shrink: 0;
 }
 
-/* === SÉPARATEUR ENTRE LES BLOCS === */
-.degree-divider {
-  height: 1px;
-  background-color: var(--lightest-navy);
-  margin: 18px 0;
+@media only screen and (max-width: 600px) {
+  .degrees-list::before {
+    left: 31px;
+  }
+
+  .degree-row {
+    gap: 16px;
+    padding: 16px 8px 16px 0;
+  }
+
+  .degree-icon-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+  }
+
+  .degree-icon-box.is-contain {
+    padding: 6px;
+  }
+
+  .degree-bac-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .degree-name {
+    font-size: 18px;
+  }
 }

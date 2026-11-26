@@ -8,20 +8,7 @@ import { LanguageContext } from "../LanguageContext";
 
 class Intro extends React.Component {
   static contextType = LanguageContext;
-  constructor() {
-    super();
-    this.state = {
-      expanded: true,
-      activeKey: "1",
-      visible: true,
-    };
-    this.handleSelect = this.handleSelect.bind(this);
-  }
-  handleSelect(eventKey) {
-    this.setState({
-      activeKey: eventKey,
-    });
-  }
+
   componentDidMount() {
     document.body.classList.add("not-loaded");
     this.timeoutId = setTimeout(() => {
@@ -37,22 +24,38 @@ class Intro extends React.Component {
   render() {
     const { t } = this.context;
     return (
-      <div id="intro">
-        <FractalTree />
-        <Typist avgTypingDelay={120}>
-          <span className="intro-title">
-            {t("intro.salut")}
-            <span className="intro-name">{"kamdine"}</span>
-            {"."}
-          </span>
-        </Typist>
-        <FadeInSection>
-          <div className="intro-subtitle" style={{ marginTop: "10px" }}>{t("intro.et")}</div>
-          <div className="intro-desc">
-            {t("intro.desc")}
-          </div>
-        </FadeInSection>
-      </div>
+      <section id="intro">
+        <div className="intro-grid" aria-hidden="true" />
+        <div className="intro-inner">
+          <FractalTree />
+          <Typist avgTypingDelay={120}>
+            <span className="intro-title">
+              {t("intro.salut")}
+              <span className="intro-name">{"kamdine"}</span>
+              {"."}
+            </span>
+          </Typist>
+          <FadeInSection>
+            <div className="intro-subtitle">{t("intro.et")}</div>
+            <p className="intro-desc">{t("intro.desc")}</p>
+            <div className="intro-badge">
+              <span className="pulse-dot" aria-hidden="true" />
+              {t("intro.badge")}
+            </div>
+            <div className="intro-actions">
+              <a href="#projects" className="cta cta-primary">
+                {t("intro.cta.projects")}
+              </a>
+              <a href="#contact" className="cta cta-ghost">
+                {t("intro.cta.contact")}
+              </a>
+            </div>
+          </FadeInSection>
+        </div>
+        <a href="#about" className="scroll-hint" aria-label={t("nav.about")}>
+          <span />
+        </a>
+      </section>
     );
   }
 }
