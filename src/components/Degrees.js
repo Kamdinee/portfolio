@@ -42,10 +42,9 @@ export default function Degrees() {
         <SectionHeader title={t("degrees.title")} />
 
         <ol className="degrees-list">
-          {DEGREES.map((d, i) => (
+          {DEGREES.map((d) => (
             <FadeInSection
               as="li"
-              delay={`${i * 120}ms`}
               key={d.id}
               className={`degree-row ${d.current ? "is-current" : ""}`}
             >
@@ -61,7 +60,6 @@ export default function Degrees() {
                   <div className="degree-head">
                     <h3 className="degree-name">{t(`deg.${d.id}.title`)}</h3>
                     <span className={`degree-status ${d.current ? "is-current" : ""}`}>
-                      {d.current && <span className="pulse-dot" aria-hidden="true" />}
                       {t(`deg.${d.id}.status`)}
                     </span>
                   </div>

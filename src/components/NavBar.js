@@ -29,10 +29,8 @@ class NavBar extends React.Component {
       activeLink: "",
       open: false,
       scrolled: false,
-      hidden: false,
       isDark: document.documentElement.getAttribute("data-theme") !== "light",
     };
-    this.lastY = 0;
   }
 
   componentDidMount() {
@@ -70,9 +68,6 @@ class NavBar extends React.Component {
 
   handleScroll = () => {
     const y = window.scrollY;
-    // La barre se cache quand on descend et réapparaît quand on remonte
-    const hidden = y > 120 && y > this.lastY && !this.state.open;
-    this.lastY = y;
 
     let current = "";
     for (const { id } of SECTIONS) {
@@ -86,24 +81,18 @@ class NavBar extends React.Component {
     }
 
     const scrolled = y > 10;
-    if (
-      current !== this.state.activeLink ||
-      scrolled !== this.state.scrolled ||
-      hidden !== this.state.hidden
-    ) {
-      this.setState({ activeLink: current, scrolled, hidden });
+    if (current !== this.state.activeLink || scrolled !== this.state.scrolled) {
+      this.setState({ activeLink: current, scrolled });
     }
   };
 
   render() {
-    const { activeLink, open, scrolled, hidden, isDark } = this.state;
+    const { activeLink, open, scrolled, isDark } = this.state;
     const { t, lang, toggleLang } = this.context;
 
     return (
       <header
-        className={`top-nav ${scrolled ? "is-scrolled" : ""} ${hidden ? "is-hidden" : ""} ${
-          open ? "is-open" : ""
-        }`}
+        className={`top-nav ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}
       >
         <div className="top-nav-inner">
           <a href="#intro" className="nav-brand" onClick={() => this.setOpen(false)}>
@@ -112,7 +101,7 @@ class NavBar extends React.Component {
 
           <nav id="nav-menu" className="nav-menu" aria-label="Navigation principale">
             <ul className="nav-links">
-              {SECTIONS.map(({ id, key }, i) => (
+              {SECTIONS.map(({ id, key }) => (
                 <li key={id}>
                   <a
                     href={`#${id}`}
@@ -120,7 +109,6 @@ class NavBar extends React.Component {
                     aria-current={activeLink === id ? "true" : undefined}
                     onClick={() => this.setOpen(false)}
                   >
-                    <span className="nav-index">{String(i + 1).padStart(2, "0")}.</span>
                     {t(key)}
                   </a>
                 </li>

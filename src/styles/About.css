@@ -39,22 +39,13 @@
 .stack-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 32px;
   margin-bottom: 32px;
 }
 
 .stack-group {
-  height: 100%;
-  padding: 18px 18px 20px;
-  border-radius: var(--radius);
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.stack-group:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-3px);
+  padding-top: 14px;
+  border-top: 1px solid var(--lightest-navy);
 }
 
 .stack-label {
@@ -63,7 +54,7 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--light-slate);
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 900px) {

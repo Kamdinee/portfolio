@@ -33,9 +33,8 @@ class About extends React.Component {
 
               <p className="about-tech-intro">{t("about.tech")}</p>
               <div className="stack-grid">
-                {STACK.map((group, gi) => (
-                  <FadeInSection delay={`${(gi + 1) * 120}ms`} key={group.key}>
-                    <div className="stack-group">
+                {STACK.map((group) => (
+                  <div className="stack-group" key={group.key}>
                       <div className="stack-label">{t(group.key)}</div>
                       <ul className="chip-list">
                         {group.items.map((item) => (
@@ -44,8 +43,7 @@ class About extends React.Component {
                           </li>
                         ))}
                       </ul>
-                    </div>
-                  </FadeInSection>
+                  </div>
                 ))}
               </div>
 

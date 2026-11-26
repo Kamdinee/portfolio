@@ -10,9 +10,7 @@
 
 .spotlight .carousel-inner {
   height: 500px;
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  box-shadow: 0 30px 60px -30px var(--card-shadow);
+  border-radius: 12px;
 }
 
 .spotlight .carousel-item {
@@ -24,12 +22,6 @@
   height: 100%;
   width: 100%;
   filter: brightness(0.6) saturate(0.9);
-  transform: scale(1.02);
-  transition: transform 6s ease;
-}
-
-.spotlight .carousel-item.active img {
-  transform: scale(1.08);
 }
 
 .spotlight-overlay {
@@ -152,35 +144,22 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 24px 40px;
 }
 
 .projects-card {
-  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 26px 26px 24px;
-  background-color: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 30px -15px var(--card-shadow);
-  transition: transform 0.3s var(--ease), border-color 0.3s ease, background-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.projects-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-hover);
-  background-color: var(--card-bg-hover);
-  box-shadow: 0 20px 40px -20px var(--card-shadow);
+  padding: 22px 0 8px;
+  border-top: 1px solid var(--lightest-navy);
 }
 
 .card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
   padding: 0 !important;
   border-bottom: none !important;
   background-color: transparent !important;
@@ -189,6 +168,10 @@
 .folder-icon {
   color: var(--green-bright);
   display: inline-flex;
+}
+
+.folder-icon svg {
+  font-size: 28px !important;
 }
 
 .external-links {
@@ -200,12 +183,11 @@
 .ext-link {
   display: inline-flex;
   color: var(--light-slate) !important;
-  transition: color 0.25s ease, transform 0.25s ease;
+  transition: color 0.2s ease;
 }
 
 .ext-link:hover {
   color: var(--green-bright) !important;
-  transform: translateY(-2px);
 }
 
 .card-title {
@@ -214,11 +196,6 @@
   font-size: 22px;
   font-weight: 600;
   margin: 0 0 10px;
-  transition: color 0.25s ease;
-}
-
-.projects-card:hover .card-title {
-  color: var(--green-bright);
 }
 
 .card-desc {
@@ -255,7 +232,6 @@
 
   .spotlight .carousel-inner {
     height: 420px;
-    border-radius: 18px;
   }
 
   .spotlight-overlay {

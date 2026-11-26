@@ -118,12 +118,10 @@ const translations = {
     "links.open": "Open the project",
 
     "contact.title": "contact",
-    "contact.heading": "Let's work together.",
     "contact.text":
-      "An internship, a work-study position, a project or just a question? My inbox is always open — I'll get back to you quickly.",
-    "contact.btn": "Say hello",
-    "footer.made": "Designed & built by Kamdine",
-    "footer.inspired": "Inspired by",
+      "I am open to internship and work-study opportunities in web and mobile development. Feel free to reach out by email or on LinkedIn.",
+    "contact.btn": "Send an email",
+    "footer.inspired": "Design inspired by",
   },
   fr: {
     "nav.about": "Présentation",
@@ -231,12 +229,10 @@ const translations = {
     "links.open": "Ouvrir le projet",
 
     "contact.title": "contact",
-    "contact.heading": "Travaillons ensemble.",
     "contact.text":
-      "Une offre de stage, d'alternance, un projet ou simplement une question ? Ma boîte mail est toujours ouverte, je vous répondrai rapidement.",
-    "contact.btn": "Me contacter",
-    "footer.made": "Conçu & développé par Kamdine",
-    "footer.inspired": "Inspiré par",
+      "Je suis à l'écoute d'opportunités de stage ou d'alternance en développement web et mobile. Vous pouvez me joindre par e-mail ou via LinkedIn.",
+    "contact.btn": "Envoyer un e-mail",
+    "footer.inspired": "Design inspiré de",
   },
 };
 

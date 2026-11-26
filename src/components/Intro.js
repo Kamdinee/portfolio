@@ -25,7 +25,6 @@ class Intro extends React.Component {
     const { t } = this.context;
     return (
       <section id="intro">
-        <div className="intro-grid" aria-hidden="true" />
         <div className="intro-inner">
           <FractalTree />
           <Typist avgTypingDelay={120}>
@@ -38,10 +37,7 @@ class Intro extends React.Component {
           <FadeInSection>
             <div className="intro-subtitle">{t("intro.et")}</div>
             <p className="intro-desc">{t("intro.desc")}</p>
-            <div className="intro-badge">
-              <span className="pulse-dot" aria-hidden="true" />
-              {t("intro.badge")}
-            </div>
+            <div className="intro-badge">{t("intro.badge")}</div>
             <div className="intro-actions">
               <a href="#projects" className="cta cta-primary">
                 {t("intro.cta.projects")}
@@ -52,9 +48,6 @@ class Intro extends React.Component {
             </div>
           </FadeInSection>
         </div>
-        <a href="#about" className="scroll-hint" aria-label={t("nav.about")}>
-          <span />
-        </a>
       </section>
     );
   }

@@ -1,4 +1,4 @@
-/* ===== Barre de navigation en haut ===== */
+/* ===== Barre de navigation (toujours visible) ===== */
 .top-nav {
   position: fixed;
   top: 0;
@@ -7,45 +7,33 @@
   z-index: 1100;
   height: var(--nav-height);
   font-family: var(--font-main);
+  background: transparent;
   border-bottom: 1px solid transparent;
-  transition: transform 0.35s var(--ease), background-color 0.3s ease, border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .top-nav.is-scrolled {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom-color: var(--border);
-  box-shadow: 0 10px 30px -10px var(--navy-shadow);
-}
-
-.top-nav.is-hidden {
-  transform: translateY(-100%);
 }
 
 .top-nav-inner {
-  max-width: 1200px;
+  max-width: 1100px;
   height: 100%;
   margin: 0 auto;
   padding: 0 32px;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 36px;
 }
 
 .nav-brand {
   font-family: var(--font-title);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 1px;
   color: var(--lightest-slate) !important;
-  transition: color 0.25s ease, text-shadow 0.25s ease;
-}
-
-.nav-brand:hover {
-  color: var(--green-bright) !important;
-  text-shadow: 0 0 14px var(--green-tint-strong);
 }
 
 .nav-menu {
@@ -60,37 +48,25 @@
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 28px;
   margin: 0;
   padding: 0;
 }
 
 .nav-link {
-  position: relative;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 5px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 500;
+  color: var(--light-slate) !important;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active-link {
   color: var(--lightest-slate) !important;
-  transition: color 0.25s ease, background-color 0.25s ease;
-}
-
-.nav-index {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--green-bright);
-}
-
-.nav-link:hover {
-  color: var(--green-bright) !important;
 }
 
 .nav-link.active-link {
-  color: var(--green-bright) !important;
-  background-color: var(--green-tint);
+  font-weight: 600;
 }
 
 .nav-right {
@@ -107,18 +83,17 @@
 
 .nav-socials a {
   display: inline-flex;
-  color: var(--lightest-slate) !important;
-  transition: color 0.25s ease, transform 0.25s ease;
+  color: var(--light-slate) !important;
+  transition: color 0.2s ease;
 }
 
 .nav-socials a:hover {
-  color: var(--green-bright) !important;
-  transform: translateY(-2px);
+  color: var(--lightest-slate) !important;
 }
 
 .nav-divider {
   width: 1px;
-  height: 20px;
+  height: 18px;
   background: var(--border);
 }
 
@@ -134,29 +109,23 @@
   padding: 0;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   cursor: pointer;
-  font-family: var(--font-mono);
+  font-family: var(--font-main);
   font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: var(--lightest-slate);
-  transition: color 0.2s ease, transform 0.2s ease;
+  font-weight: 600;
+  color: var(--light-slate);
+  transition: color 0.2s ease;
 }
 
 .minimal-btn:hover {
-  color: var(--green-bright);
-}
-
-.theme-btn:hover {
-  transform: rotate(15deg) scale(1.1);
+  color: var(--lightest-slate);
 }
 
 .burger {
   display: none;
 }
 
-/* ===== Mobile : menu déroulant ===== */
+/* ===== Mobile / tablette ===== */
 @media only screen and (max-width: 1024px) {
   .top-nav-inner {
     justify-content: space-between;
@@ -164,8 +133,6 @@
   }
 
   .burger {
-    position: relative;
-    z-index: 2;
     width: 40px;
     height: 40px;
     display: flex;
@@ -181,7 +148,7 @@
 
   .burger span {
     display: block;
-    width: 24px;
+    width: 22px;
     height: 2px;
     border-radius: 2px;
     background: var(--lightest-slate);
@@ -211,35 +178,27 @@
     background: var(--navy);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-12px);
-    transition: opacity 0.3s ease, transform 0.3s var(--ease), visibility 0.3s;
+    transition: opacity 0.3s ease, visibility 0.3s;
   }
 
   .top-nav.is-open {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     background: var(--navy);
-    border-bottom-color: var(--border);
   }
 
   .top-nav.is-open .nav-menu {
     opacity: 1;
     visibility: visible;
-    transform: none;
   }
 
   .nav-links {
     flex-direction: column;
-    gap: 6px;
+    gap: 22px;
   }
 
   .nav-link {
-    font-size: 22px;
-    padding: 10px 18px;
-  }
-
-  .nav-index {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .nav-right {
@@ -248,7 +207,7 @@
   }
 
   .nav-divider {
-    width: 40px;
+    width: 32px;
     height: 1px;
   }
 

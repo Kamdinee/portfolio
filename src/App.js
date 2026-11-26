@@ -6,7 +6,6 @@ import Degrees from "./components/Degrees";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import NavBar from "./components/NavBar";
-import Ambient from "./components/Ambient";
 import { LanguageProvider } from "./LanguageContext";
 import "./App.css";
 import "./styles/Global.css";
@@ -16,7 +15,6 @@ function App() {
   return (
     <LanguageProvider>
       <div className="App">
-        <Ambient />
         <NavBar />
         <main id="content">
           <Intro />

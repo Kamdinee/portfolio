@@ -10,18 +10,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-}
-
-.degrees-list::before {
-  content: "";
-  position: absolute;
-  left: 47px;
-  top: 30px;
-  bottom: 30px;
-  width: 1px;
-  background: linear-gradient(180deg, var(--green-bright), var(--lightest-navy) 35%, transparent);
-  opacity: 0.6;
+  gap: 0;
 }
 
 .degree-row {
@@ -29,13 +18,12 @@
   display: flex;
   align-items: flex-start;
   gap: 28px;
-  padding: 22px 24px 22px 0;
-  border-radius: var(--radius);
-  transition: background-color 0.3s ease;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--lightest-navy);
 }
 
-.degree-row:hover {
-  background-color: var(--green-tint);
+.degree-row:last-child {
+  border-bottom: none;
 }
 
 /* Logo */
@@ -49,20 +37,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 18px;
+  border-radius: 12px;
   background-color: var(--light-navy);
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 30px -15px var(--card-shadow);
 }
 
 .degree-icon-box.is-contain {
   background-color: #ffffff;
   padding: 10px;
-}
-
-.degree-row.is-current .degree-icon-box {
-  border-color: var(--border-hover);
-  box-shadow: 0 0 0 4px var(--green-tint), 0 10px 30px -15px var(--card-shadow);
 }
 
 .degree-img {
@@ -106,21 +87,13 @@
 }
 
 .degree-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
   font-family: var(--font-mono);
   font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  color: var(--light-slate);
-  border: 1px solid var(--border);
+  color: var(--slate);
 }
 
 .degree-status.is-current {
   color: var(--green-bright);
-  background: var(--green-tint);
-  border-color: transparent;
 }
 
 .degree-field {
@@ -152,13 +125,9 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .degrees-list::before {
-    left: 31px;
-  }
-
   .degree-row {
     gap: 16px;
-    padding: 16px 8px 16px 0;
+    padding: 18px 0;
   }
 
   .degree-icon-box {

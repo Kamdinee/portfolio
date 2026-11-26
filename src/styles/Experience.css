@@ -35,8 +35,7 @@
 
 .joblist-tab:hover,
 .joblist-tab:focus-visible {
-  color: var(--green-bright);
-  background-color: var(--green-tint);
+  color: var(--lightest-slate);
 }
 
 .joblist-tab.is-active {
@@ -124,7 +123,7 @@
 }
 
 .job-stack {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 @media only screen and (max-width: 700px) {

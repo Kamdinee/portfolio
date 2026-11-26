@@ -1,5 +1,4 @@
 import React, { useContext, useRef, useState } from "react";
-import FadeInSection from "./FadeInSection";
 import { LanguageContext } from "../LanguageContext";
 
 /* Onglets d'expériences (verticaux sur desktop, horizontaux sur mobile). */
@@ -73,9 +72,7 @@ const JobList = () => {
         <div className="joblist-duration">{job.duration}</div>
         <ul className="job-description">
           {job.desc.map((item, i) => (
-            <FadeInSection as="li" delay={`${(i + 1) * 80}ms`} key={i}>
-              {item}
-            </FadeInSection>
+            <li key={i}>{item}</li>
           ))}
         </ul>
         <ul className="chip-list job-stack">
