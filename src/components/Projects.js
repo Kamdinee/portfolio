@@ -85,21 +85,29 @@ export default function Projects() {
   return (
     <section id="projects">
       <FadeInSection>
-        <SectionHeader title={t("proj.title")} />
+        <SectionHeader
+          title={t("proj.title")}
+          action={
+            <a
+              className="section-action"
+              href="https://github.com/Kamdinee"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("proj.all")}
+              <span aria-hidden="true">→</span>
+            </a>
+          }
+        />
         <Carousel className="spotlight" interval={6000} pause="hover">
           {spotlightProjects.map((p) => (
             <Carousel.Item key={p.title}>
               <img className="d-block w-100" src={p.image} alt={p.title} />
               <div className="spotlight-overlay" aria-hidden="true" />
               <Carousel.Caption className="spotlight-caption">
-                <span className="spotlight-kicker">{t("proj.featured")}</span>
                 <h3>{p.title}</h3>
                 <p className="spotlight-desc">{p.desc}</p>
-                <ul className="spotlight-stack">
-                  {splitStack(p.techStack).map((s) => (
-                    <li key={s}>{s}</li>
-                  ))}
-                </ul>
+                <p className="spotlight-stack">{splitStack(p.techStack).join(" · ")}</p>
                 <ExternalLinks githubLink={p.link} openLink={p.open} docLink={p.doc} />
               </Carousel.Caption>
             </Carousel.Item>
@@ -107,7 +115,6 @@ export default function Projects() {
         </Carousel>
       </FadeInSection>
 
-      <h3 className="projects-subtitle">{t("proj.others")}</h3>
       <ul className="projects-grid">
         {projects.map((p, i) => (
           <FadeInSection as="li" delay={`${(i % 3) * 100}ms`} key={p.title}>
@@ -120,11 +127,7 @@ export default function Projects() {
               </div>
               <h4 className="card-title">{p.title}</h4>
               <p className="card-desc">{p.desc}</p>
-              <ul className="card-tech">
-                {splitStack(p.techStack).map((s) => (
-                  <li key={s}>{s}</li>
-                ))}
-              </ul>
+              <p className="card-tech">{splitStack(p.techStack).join(", ")}</p>
             </article>
           </FadeInSection>
         ))}

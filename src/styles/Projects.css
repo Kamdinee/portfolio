@@ -2,15 +2,17 @@
   min-height: 50vh;
 }
 
-/* ===== Carrousel des projets phares ===== */
+/* ===== Carrousel des projets phares (style d'origine) ===== */
 .spotlight.carousel.slide {
   max-width: 1000px;
   margin: 0 auto;
+  padding-bottom: 48px;
 }
 
 .spotlight .carousel-inner {
   height: 500px;
-  border-radius: 12px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px -20px var(--card-shadow);
 }
 
 .spotlight .carousel-item {
@@ -19,75 +21,59 @@
 
 .spotlight .carousel-item img {
   object-fit: cover;
+  object-position: top center;
   height: 100%;
   width: 100%;
-  filter: brightness(0.6) saturate(0.9);
 }
 
 .spotlight-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-      90deg,
-      rgba(2, 12, 27, 0.92) 0%,
-      rgba(2, 12, 27, 0.65) 45%,
-      rgba(2, 12, 27, 0.1) 100%
-    ),
-    linear-gradient(0deg, rgba(2, 12, 27, 0.6) 0%, transparent 50%);
+  background: rgba(2, 12, 27, 0.68);
 }
 
 .spotlight-caption.carousel-caption {
-  left: 9% !important;
+  left: 50% !important;
   right: auto !important;
-  bottom: 16% !important;
-  top: auto;
-  max-width: 520px;
+  bottom: 50% !important;
+  transform: translate(-50%, 50%);
+  width: min(620px, 84%);
   padding: 0;
-  text-align: left;
+  text-align: center;
   user-select: none;
-}
-
-.spotlight-kicker {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  color: #64ffda;
-  margin-bottom: 8px;
-}
-
-[data-theme="light"] .spotlight-kicker,
-[data-theme="light"] .spotlight-stack li {
-  color: #e2b496;
 }
 
 .spotlight-caption h3 {
   font-family: var(--font-title);
-  font-size: 38px;
+  font-size: 40px;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 14px;
-  letter-spacing: -0.01em;
 }
 
 .spotlight-desc {
   font-family: var(--font-main);
-  font-size: 16px;
+  font-size: 16.5px;
   line-height: 1.65;
-  color: rgba(230, 241, 255, 0.85);
-  margin-bottom: 18px;
+  color: rgba(230, 241, 255, 0.9);
+  margin-bottom: 10px;
 }
 
 .spotlight-stack {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 18px;
-  padding: 0;
-  margin: 0 0 16px;
   font-family: var(--font-mono);
   font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: #64ffda;
+  margin-bottom: 14px;
+}
+
+[data-theme="light"] .spotlight-stack {
+  color: #e2b496;
+}
+
+.spotlight .external-links {
+  justify-content: center;
 }
 
 .spotlight .external-links .ext-link {
@@ -98,68 +84,62 @@
   color: #64ffda !important;
 }
 
+/* Indicateurs sous l'image */
 .spotlight .carousel-indicators {
-  margin-bottom: 22px;
+  bottom: 0;
+  margin-bottom: 8px;
 }
 
 .spotlight .carousel-indicators li {
-  width: 24px;
+  width: 30px;
   height: 3px;
-  border-radius: 3px;
   border: none;
-  background-color: rgba(255, 255, 255, 0.5);
-  transition: width 0.3s ease, background-color 0.3s ease;
+  border-radius: 2px;
+  background-color: var(--slate);
+  opacity: 0.6;
 }
 
 .spotlight .carousel-indicators .active {
-  width: 40px;
   background-color: var(--green-bright);
+  opacity: 1;
 }
 
 .spotlight .carousel-control-prev,
 .spotlight .carousel-control-next {
-  width: 7%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  bottom: 48px;
+  width: 8%;
+  opacity: 0.7;
 }
 
-.spotlight:hover .carousel-control-prev,
-.spotlight:hover .carousel-control-next {
-  opacity: 0.8;
+.spotlight .carousel-control-prev:hover,
+.spotlight .carousel-control-next:hover {
+  opacity: 1;
 }
 
-/* ===== Grille des autres projets ===== */
-.projects-subtitle {
-  font-family: var(--font-title);
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--lightest-slate);
-  text-align: center;
-  margin: 80px 0 32px;
-}
-
+/* ===== Cartes des autres projets ===== */
 .projects-grid {
   list-style: none;
-  margin: 0;
+  margin: 32px 0 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px 40px;
+  gap: 12px;
 }
 
 .projects-card {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 22px 0 8px;
-  border-top: 1px solid var(--lightest-navy);
+  padding: 32px 28px 28px;
+  border-radius: 14px;
+  background-color: var(--card-bg);
 }
 
 .card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 26px;
   padding: 0 !important;
   border-bottom: none !important;
   background-color: transparent !important;
@@ -170,10 +150,6 @@
   display: inline-flex;
 }
 
-.folder-icon svg {
-  font-size: 28px !important;
-}
-
 .external-links {
   display: inline-flex;
   align-items: center;
@@ -182,19 +158,20 @@
 
 .ext-link {
   display: inline-flex;
-  color: var(--light-slate) !important;
-  transition: color 0.2s ease;
+  color: var(--green-bright) !important;
+  transition: opacity 0.2s ease;
 }
 
 .ext-link:hover {
-  color: var(--green-bright) !important;
+  opacity: 0.75;
 }
 
 .card-title {
   font-family: var(--font-title);
   color: var(--lightest-slate);
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 600;
+  line-height: 1.35;
   margin: 0 0 10px;
 }
 
@@ -202,21 +179,16 @@
   font-family: var(--font-main);
   color: var(--slate);
   font-size: 15.5px;
-  line-height: 1.65;
-  margin: 0 0 22px;
+  line-height: 1.7;
+  margin: 0 0 24px;
   flex-grow: 1;
 }
 
 .card-tech {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 14px;
+  font-family: var(--font-main);
+  font-size: 13.5px;
+  color: var(--slate);
   margin: 0;
-  padding: 0;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  color: var(--light-slate);
 }
 
 @media (max-width: 1100px) {
@@ -234,25 +206,11 @@
     height: 420px;
   }
 
-  .spotlight-overlay {
-    background: linear-gradient(0deg, rgba(2, 12, 27, 0.95) 0%, rgba(2, 12, 27, 0.6) 60%, rgba(2, 12, 27, 0.2) 100%);
-  }
-
-  .spotlight-caption.carousel-caption {
-    left: 22px !important;
-    right: 22px !important;
-    bottom: 48px !important;
-  }
-
   .spotlight-caption h3 {
     font-size: 28px;
   }
 
   .spotlight-desc {
     font-size: 14.5px;
-  }
-
-  .projects-subtitle {
-    margin-top: 56px;
   }
 }

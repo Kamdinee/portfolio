@@ -118,6 +118,34 @@ a {
   background-color: var(--lightest-navy);
 }
 
+.section-header.has-action::after {
+  flex: 1 1 auto;
+  order: 1;
+  margin-right: 24px;
+}
+
+.section-header.has-action > .section-action {
+  order: 2;
+}
+
+.section-action {
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--green-bright) !important;
+}
+
+.section-action span {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+.section-action:hover span {
+  transform: translateX(4px);
+}
+
 .section-title {
   font-family: var(--font-title);
   color: var(--lightest-slate);
@@ -211,7 +239,35 @@ a {
     flex-basis: 80px;
   }
 
-  .section-title {
+  .section-header.has-action::after {
+  flex: 1 1 auto;
+  order: 1;
+  margin-right: 24px;
+}
+
+.section-header.has-action > .section-action {
+  order: 2;
+}
+
+.section-action {
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--green-bright) !important;
+}
+
+.section-action span {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+.section-action:hover span {
+  transform: translateX(4px);
+}
+
+.section-title {
     font-size: 30px;
   }
 }

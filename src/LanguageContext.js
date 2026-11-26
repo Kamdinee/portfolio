@@ -32,17 +32,17 @@ const translations = {
 
     "about.title": "about",
     "about.p1.1": "I'm a ",
-    "about.p1.bold1": "third-year BUT Computer Science student — DWM track",
+    "about.p1.bold1": "third-year BUT Computer Science student, DWM track",
     "about.p1.2":
-      " at IUT Nancy-Charlemagne, after a BTS SIO (SLAM option). I'm open to ",
-    "about.p1.bold2": "web & mobile development opportunities",
+      " at IUT Nancy-Charlemagne, after a BTS SIO (SLAM option). I am looking for ",
+    "about.p1.bold2": "web and mobile development opportunities",
     "about.p1.3":
-      " (internship, work-study, projects) to keep sharpening my skills, contribute to real products and grow as a ",
+      " (internship, work-study) to contribute to real projects and keep growing as a ",
     "about.p1.bold3": "developer.",
-    "about.tech": "Technologies I have been working with:",
+    "about.tech": "Tech stack",
     "about.stack.lang": "Languages",
     "about.stack.front": "Frameworks",
-    "about.stack.tools": "Tools & DevOps",
+    "about.stack.tools": "Tools",
     "about.p2":
       "Outside of my studies, I have a strong interest in innovation and astronomy. I also love playing video games and watching movies.",
 
@@ -93,8 +93,7 @@ const translations = {
       "Gained experience with Docker, Laravel, and agile collaboration within a team.",
 
     "proj.title": "projects",
-    "proj.featured": "Featured project",
-    "proj.others": "Other projects",
+    "proj.all": "View all projects",
     "proj.agora.desc":
       "Application of the AGORA youth club data administration site developed in the 2nd year of BTS.",
     "proj.mir.desc":
@@ -142,17 +141,17 @@ const translations = {
 
     "about.title": "présentation",
     "about.p1.1": "Je suis étudiant en ",
-    "about.p1.bold1": "3ème année de BUT Informatique — parcours DWM",
+    "about.p1.bold1": "3ème année de BUT Informatique, parcours DWM",
     "about.p1.2":
-      " à l'IUT Nancy-Charlemagne, après un BTS SIO option SLAM. Je suis ouvert aux ",
-    "about.p1.bold2": "opportunités en développement web & mobile",
+      ", à l'IUT Nancy-Charlemagne, après un BTS SIO option SLAM. Je recherche des ",
+    "about.p1.bold2": "opportunités en développement web et mobile",
     "about.p1.3":
-      " (stage, alternance, projets) pour continuer à perfectionner mes compétences, contribuer à de vrais produits et grandir en tant que ",
+      " (stage, alternance) pour contribuer à des projets concrets et progresser en tant que ",
     "about.p1.bold3": "développeur.",
-    "about.tech": "Les technologies avec lesquelles j'ai travaillé :",
+    "about.tech": "Technologies",
     "about.stack.lang": "Langages",
     "about.stack.front": "Frameworks",
-    "about.stack.tools": "Outils & DevOps",
+    "about.stack.tools": "Outils",
     "about.p2":
       "En dehors de mes études, j'ai un fort intérêt pour l'innovation et l'astronomie. J'aime aussi jouer aux jeux vidéo et regarder des films.",
 
@@ -204,8 +203,7 @@ const translations = {
       "Acquisition d'expérience avec Docker, Laravel, et la collaboration agile en équipe.",
 
     "proj.title": "projets",
-    "proj.featured": "Projet phare",
-    "proj.others": "Autres projets",
+    "proj.all": "Voir tous mes projets",
     "proj.agora.desc":
       "Application du site d'administration des données de la MJC AGORA développée en 2ème année de BTS.",
     "proj.mir.desc":

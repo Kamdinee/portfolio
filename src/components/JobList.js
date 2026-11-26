@@ -17,6 +17,7 @@ const JobList = () => {
     },
     {
       company: "Miratlas",
+      logo: "/assets/logomiratlas.png",
       jobTitle: t("exp.mir.title"),
       duration: t("exp.mir.duration"),
       desc: [1, 2, 3, 4].map((n) => t(`exp.mir.desc${n}`)),
@@ -65,6 +66,7 @@ const JobList = () => {
         aria-labelledby={`job-tab-${active}`}
         key={active}
       >
+        {job.logo && <img className="joblist-logo" src={job.logo} alt={job.company} />}
         <h3 className="joblist-heading">
           <span className="joblist-job-title">{job.jobTitle} </span>
           <span className="joblist-job-company">{job.company}</span>

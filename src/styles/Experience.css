@@ -72,6 +72,13 @@
   }
 }
 
+.joblist-logo {
+  display: block;
+  height: 76px;
+  width: auto;
+  margin-bottom: 18px;
+}
+
 .joblist-heading {
   margin: 0 0 6px;
   line-height: 1.3;

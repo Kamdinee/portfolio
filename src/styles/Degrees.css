@@ -42,8 +42,7 @@
 }
 
 .degree-icon-box.is-contain {
-  background-color: #ffffff;
-  padding: 10px;
+  background-color: transparent;
 }
 
 .degree-img {
@@ -134,10 +133,6 @@
     width: 64px;
     height: 64px;
     border-radius: 14px;
-  }
-
-  .degree-icon-box.is-contain {
-    padding: 6px;
   }
 
   .degree-bac-icon {

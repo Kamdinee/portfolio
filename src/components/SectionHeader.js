@@ -1,12 +1,13 @@
 import React from "react";
 
-/* En-tête de section façon "/ titre" + filet, avec le slash dans la couleur d'accent. */
-export default function SectionHeader({ title }) {
+/* En-tête de section façon "/ titre" + filet, avec un lien optionnel à droite. */
+export default function SectionHeader({ title, action }) {
   return (
-    <div className="section-header">
+    <div className={`section-header ${action ? "has-action" : ""}`}>
       <h2 className="section-title">
         <span className="section-slash">/</span> {title}
       </h2>
+      {action}
     </div>
   );
 }

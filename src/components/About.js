@@ -30,25 +30,22 @@ class About extends React.Component {
                 {t("about.p1.3")}
                 <b className="accent">{t("about.p1.bold3")}</b>
               </p>
-
-              <p className="about-tech-intro">{t("about.tech")}</p>
-              <div className="stack-grid">
-                {STACK.map((group) => (
-                  <div className="stack-group" key={group.key}>
-                      <div className="stack-label">{t(group.key)}</div>
-                      <ul className="chip-list">
-                        {group.items.map((item) => (
-                          <li className="chip" key={item}>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                  </div>
-                ))}
-              </div>
-
               <p>{t("about.p2")}</p>
             </div>
+
+            <aside className="about-stack" aria-label={t("about.tech")}>
+              <h3 className="about-stack-title">{t("about.tech")}</h3>
+              {STACK.map((group) => (
+                <div className="stack-group" key={group.key}>
+                  <div className="stack-label">{t(group.key)}</div>
+                  <ul className="tech-list">
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </aside>
           </div>
         </FadeInSection>
       </section>
