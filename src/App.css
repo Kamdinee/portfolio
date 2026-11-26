@@ -2,7 +2,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 24px;
+  scroll-padding-top: 0;
 }
 
 body {
@@ -68,8 +68,7 @@ a {
 
 /* ===== Mise en page ===== */
 #content {
-  margin-left: var(--sidebar-width);
-  width: calc(100% - var(--sidebar-width));
+  width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
   position: relative;
@@ -78,7 +77,7 @@ a {
 
 #content > div,
 #content > section {
-  padding: 110px 8%;
+  padding: 120px 8%;
   min-height: 70vh;
   display: flex;
   flex-direction: column;
@@ -232,11 +231,6 @@ a {
 
 /* ===== Responsive ===== */
 @media only screen and (max-width: 991px) {
-  #content {
-    margin-left: 0;
-    width: 100%;
-    padding-top: 64px;
-  }
 
   #content > div,
   #content > section {
@@ -245,7 +239,7 @@ a {
   }
 
   #content > #intro {
-    min-height: calc(100vh - 64px);
+    min-height: 100vh;
   }
 }
 

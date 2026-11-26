@@ -2,6 +2,7 @@ import React from "react";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import { Sun, Moon } from "lucide-react";
 import { LanguageContext } from "../LanguageContext";
 import "../styles/NavBar.css";
 
@@ -10,27 +11,13 @@ const SECTIONS = [
   { id: "degrees", key: "nav.degrees" },
   { id: "experience", key: "nav.experience" },
   { id: "projects", key: "nav.projects" },
-  { id: "veilles", key: "nav.veilles" },
-  { id: "epreuve-e5", key: "nav.epreuve" },
   { id: "contact", key: "nav.contact" },
 ];
 
 const SOCIALS = [
-  {
-    href: "mailto:kamdine.hzd@outlook.com",
-    label: "E-mail",
-    icon: <EmailRoundedIcon style={{ fontSize: 20 }} />,
-  },
-  {
-    href: "https://github.com/Kamdinee",
-    label: "GitHub",
-    icon: <GitHubIcon style={{ fontSize: 19 }} />,
-  },
-  {
-    href: "https://www.linkedin.com/in/kamdine/",
-    label: "LinkedIn",
-    icon: <LinkedInIcon style={{ fontSize: 21 }} />,
-  },
+  { href: "mailto:kamdine.hzd@outlook.com", label: "E-mail", icon: <EmailRoundedIcon style={{ fontSize: 20 }} /> },
+  { href: "https://github.com/Kamdinee", label: "GitHub", icon: <GitHubIcon style={{ fontSize: 19 }} /> },
+  { href: "https://www.linkedin.com/in/kamdine/", label: "LinkedIn", icon: <LinkedInIcon style={{ fontSize: 21 }} /> },
 ];
 
 class NavBar extends React.Component {
@@ -38,8 +25,14 @@ class NavBar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { activeLink: "", open: false };
-    this.handleScroll = this.handleScroll.bind(this);
+    this.state = {
+      activeLink: "",
+      open: false,
+      scrolled: false,
+      hidden: false,
+      isDark: document.documentElement.getAttribute("data-theme") !== "light",
+    };
+    this.lastY = 0;
   }
 
   componentDidMount() {
@@ -63,7 +56,24 @@ class NavBar extends React.Component {
     document.body.classList.toggle("menu-open", open);
   };
 
-  handleScroll() {
+  toggleTheme = () => {
+    const isDark = !this.state.isDark;
+    const theme = isDark ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (e) {
+      /* ignore */
+    }
+    this.setState({ isDark });
+  };
+
+  handleScroll = () => {
+    const y = window.scrollY;
+    // La barre se cache quand on descend et réapparaît quand on remonte
+    const hidden = y > 120 && y > this.lastY && !this.state.open;
+    this.lastY = y;
+
     let current = "";
     for (const { id } of SECTIONS) {
       const el = document.getElementById(id);
@@ -74,39 +84,33 @@ class NavBar extends React.Component {
         break;
       }
     }
-    if (current !== this.state.activeLink) this.setState({ activeLink: current });
-  }
+
+    const scrolled = y > 10;
+    if (
+      current !== this.state.activeLink ||
+      scrolled !== this.state.scrolled ||
+      hidden !== this.state.hidden
+    ) {
+      this.setState({ activeLink: current, scrolled, hidden });
+    }
+  };
 
   render() {
-    const { activeLink, open } = this.state;
-    const { t } = this.context;
+    const { activeLink, open, scrolled, hidden, isDark } = this.state;
+    const { t, lang, toggleLang } = this.context;
 
     return (
-      <>
-        {/* Barre mobile */}
-        <header className="mobile-bar">
-          <a href="#intro" className="logo-text" onClick={() => this.setOpen(false)}>
-            kam
+      <header
+        className={`top-nav ${scrolled ? "is-scrolled" : ""} ${hidden ? "is-hidden" : ""} ${
+          open ? "is-open" : ""
+        }`}
+      >
+        <div className="top-nav-inner">
+          <a href="#intro" className="nav-brand" onClick={() => this.setOpen(false)}>
+            Kam
           </a>
-          <button
-            className={`burger ${open ? "is-open" : ""}`}
-            onClick={() => this.setOpen(!open)}
-            aria-label={open ? t("nav.close") : t("nav.menu")}
-            aria-expanded={open}
-            aria-controls="sidebar"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </header>
 
-        <nav id="sidebar" className={`vertical-navbar ${open ? "is-open" : ""}`}>
-          <div className="navbar-inner">
-            <a href="#intro" className="logo-text navbar-logo" onClick={() => this.setOpen(false)}>
-              kam
-            </a>
-
+          <nav id="nav-menu" className="nav-menu" aria-label="Navigation principale">
             <ul className="nav-links">
               {SECTIONS.map(({ id, key }, i) => (
                 <li key={id}>
@@ -116,15 +120,15 @@ class NavBar extends React.Component {
                     aria-current={activeLink === id ? "true" : undefined}
                     onClick={() => this.setOpen(false)}
                   >
-                    <span className="nav-index">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="nav-label">{t(key)}</span>
+                    <span className="nav-index">{String(i + 1).padStart(2, "0")}.</span>
+                    {t(key)}
                   </a>
                 </li>
               ))}
             </ul>
 
-            <div className="navbar-bottom">
-              <div className="navbar-socials">
+            <div className="nav-right">
+              <div className="nav-socials">
                 {SOCIALS.map((s) => (
                   <a
                     key={s.label}
@@ -138,12 +142,41 @@ class NavBar extends React.Component {
                   </a>
                 ))}
               </div>
-              <div className="navbar-footer">© {new Date().getFullYear()} Kamdine</div>
+              <span className="nav-divider" aria-hidden="true" />
+              <div className="nav-toggles">
+                <button
+                  className="minimal-btn"
+                  onClick={toggleLang}
+                  aria-label={lang === "en" ? "Passer en français" : "Switch to English"}
+                  title={lang === "en" ? "Passer en français" : "Switch to English"}
+                >
+                  {lang === "en" ? "EN" : "FR"}
+                </button>
+                <button
+                  className="minimal-btn theme-btn"
+                  onClick={this.toggleTheme}
+                  aria-label={isDark ? "Light theme" : "Dark theme"}
+                  title={isDark ? "Light theme" : "Dark theme"}
+                >
+                  {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                </button>
+              </div>
             </div>
-          </div>
-        </nav>
-        {open && <div className="nav-backdrop" onClick={() => this.setOpen(false)} />}
-      </>
+          </nav>
+
+          <button
+            className={`burger ${open ? "is-open" : ""}`}
+            onClick={() => this.setOpen(!open)}
+            aria-label={open ? t("nav.close") : t("nav.menu")}
+            aria-expanded={open}
+            aria-controls="nav-menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </header>
     );
   }
 }

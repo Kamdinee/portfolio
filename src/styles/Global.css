@@ -27,21 +27,11 @@
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Mise en page */
-  --sidebar-width: 250px;
+  --nav-height: 72px;
   --radius: 16px;
   --radius-sm: 10px;
   --ease: cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  /* Sidebar */
-  --sidebar-bg: #0f172a;
-  --sidebar-bg-grad: rgba(100, 255, 218, 0.15);
-  --sidebar-border: rgba(100, 255, 218, 0.08);
-  --sidebar-text: #ccd6f6;
-  --sidebar-link: #a8b2d1;
-  --sidebar-link-active: #ffffff;
-  --sidebar-logo: #ffffff;
-  --sidebar-accent: #64ffda;
-  --sidebar-active-bg: rgba(100, 255, 218, 0.1);
 
   --experience-indicator: var(--green-bright);
 
@@ -72,16 +62,6 @@
   --green-tint-strong: rgba(171, 125, 99, 0.35);
   --on-accent: #ffffff;
 
-  /* Sidebar (menu gauche foncé) */
-  --sidebar-bg: #333232;
-  --sidebar-bg-grad: #42362f;
-  --sidebar-border: rgba(0, 0, 0, 0.1);
-  --sidebar-text: #f4efe6;
-  --sidebar-link: #cbbcb0;
-  --sidebar-link-active: #e2b496;
-  --sidebar-logo: #ffffff;
-  --sidebar-accent: #e2b496;
-  --sidebar-active-bg: rgba(226, 180, 150, 0.12);
 
   --experience-indicator: #a26f52;
 

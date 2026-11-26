@@ -70,12 +70,6 @@ export default function Projects() {
       doc: "/assets/Rapport Final du challenge.pdf",
     },
     {
-      title: "Veille Informatique",
-      desc: t("proj.veilleinfo.desc"),
-      techStack: "n8n, IA, Automatisation",
-      doc: "/assets/CR - Méthodologie de veille Informationnelle.pdf",
-    },
-    {
       title: "TP Réseau",
       desc: t("proj.tp.desc"),
       techStack: "Packet Tracer, Bash, SSH",
